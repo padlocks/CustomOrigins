@@ -1,0 +1,17 @@
+{
+  "powers": [
+    "moborigins:queen_bee",
+    "customorigins:bee_sized",
+    "moborigins:bee_wings",
+    "extraorigins:nectarivore",
+    "extraorigins:green_thumb",
+    "extraorigins:photosynthesis",
+    "moborigins:flower_power",
+    "extraorigins:flammable",
+    "extraorigins:delicate",
+    "origins:water_vulnerability"
+  ],
+  "icon": "minecraft:honey_bottle",
+  "order": 4,
+  "impact": 3
+}

@@ -19,7 +19,7 @@
     "type": "origins:modify_jump",
     "modifier": {
       "name": "Origin modifier",
-      "value": -0.05555,
+      "value": -0.00888,
       "operation": "multiply_total"
     }
   }

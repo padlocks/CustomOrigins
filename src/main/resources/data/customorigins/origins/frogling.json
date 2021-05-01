@@ -1,0 +1,22 @@
+{
+    "impact": 2,
+    "unchoosable": false,
+    "name": "Frogling",
+    "description": "Frogling, amphibious and afraid, a small creature roaming both land and water. Small and slippery, the Frogling hates dry places and fire after a previous experience that will haunt them forever.",
+    "icon": "minecraft:kelp",
+    "order": 20,
+    "powers": [
+        "origins:aqua_affinity",
+        "origins:water_vision",
+        "origins:like_water",
+        "customorigins:amphibious",
+        "moborigins:slippery",
+        "customorigins:no_netherite",
+        "origins:swim_speed",
+        "origins:fall_immunity",
+        "customorigins:jump",
+        "customorigins:frog_size",
+        "customorigins:dehydration",
+        "customorigins:pyrophobic"
+    ]
+}

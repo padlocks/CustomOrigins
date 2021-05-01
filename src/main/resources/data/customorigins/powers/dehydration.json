@@ -1,0 +1,47 @@
+{
+    "type": "origins:multiple",
+    "name": "Dehydration",
+    "description": "You are not used to the warmth so you have Weakness and take more damage in hot biomes. ",
+    "o___0": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "operation": "addition",
+            "value": 1
+        },
+        "condition": {
+            "type": "origins:biome",
+            "inverted": false,
+            "condition": {
+                "type": "origins:temperature",
+                "inverted": false,
+                "comparison": ">",
+                "compare_to": 1
+            }
+        }
+    },
+    "o___1": {
+        "type": "origins:action_over_time",
+        "interval": 20,
+        "entity_action": {
+            "type": "origins:apply_effect",
+            "effect": {
+                "is_ambient": false,
+                "show_particles": false,
+                "show_icon": false,
+                "effect": "minecraft:weakness",
+                "amplifier": 0,
+                "duration": 30
+            }
+        },
+        "condition": {
+            "type": "origins:biome",
+            "inverted": false,
+            "condition": {
+                "type": "origins:temperature",
+                "inverted": false,
+                "comparison": ">",
+                "compare_to": 1
+            }
+        }
+    }
+}

@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "customorigins",
+  "version": "${version}",
+  "name": "Custom Ovis Origins",
+  "description": "Adds custom origins to the game.",
+  "authors": [
+    "Bee (padlocks)"
+  ],
+  "contact": {
+    "repo": "https://github.com/padlocks"
+  },
+  "license": "MIT",
+  "icon": "assets/customorigins/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "io.github.padlocks.customorigins.client.CustomOriginsClient"
+    ],
+    "main": [
+      "io.github.padlocks.customorigins.CustomOriginsMod"
+    ]
+  },
+  "mixins": [
+    "customorigins.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.11.1",
+    "fabric": ">=0.29.4",
+    "minecraft": "1.16.x",
+    "origins": ">=0.6.0"
+  }
+}

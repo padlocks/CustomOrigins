@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "origins": [
+    "customorigins:frogling",
+    "customorigins:honeybee"
+  ]
+}

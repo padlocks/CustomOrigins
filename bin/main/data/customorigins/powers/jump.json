@@ -1,0 +1,17 @@
+{
+    "type": "origins:action_over_time",
+    "name": "Frog Legs",
+    "description": "Your miniscule but powerful legs are able to push you up three blocks.",
+    "interval": 20,
+    "entity_action": {
+        "type": "origins:apply_effect",
+        "effect": {
+            "duration": 100,
+            "is_ambient": false,
+            "show_particles": false,
+            "show_icon": false,
+            "effect": "minecraft:jump_boost",
+            "amplifier": 2
+        }
+    }
+}

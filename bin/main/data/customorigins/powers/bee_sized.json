@@ -1,0 +1,26 @@
+{
+  "type": "origins:multiple",
+  "modify_size": {
+    "type": "extraorigins:modify_size",
+    "scale": 0.75
+  },
+  "attribute_modifiers": {
+    "type": "origins:attribute",
+    "modifiers": [
+      {
+        "name": "Origin modifier",
+        "attribute": "generic.max_health",
+        "value": -8,
+        "operation": "addition"
+      }
+    ]
+  },
+  "jump_modifier": {
+    "type": "origins:modify_jump",
+    "modifier": {
+      "name": "Origin modifier",
+      "value": -0.00888,
+      "operation": "multiply_total"
+    }
+  }
+}

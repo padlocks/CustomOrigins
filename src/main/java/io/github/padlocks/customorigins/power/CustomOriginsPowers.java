@@ -6,4 +6,6 @@ import io.github.apace100.origins.power.PowerTypeReference;
 import net.minecraft.util.Identifier;
 
 public class CustomOriginsPowers {
+    public static final PowerType<Power> BUMBLE = new PowerTypeReference(
+            new Identifier("customorigins", "bumble"));
 }

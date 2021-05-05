@@ -4,6 +4,9 @@
   "package": "io.github.padlocks.customorigins.impl.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "BeehiveBlockMixin",
+    "BeehiveBlockEntityMixin",
+    "LivingEntityMixin",
     "HookClientPlayerTick",
     "HookPlayerFlightSpeed",
     "ServerPlayerEntityMixin",

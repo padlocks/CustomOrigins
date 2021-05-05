@@ -10,7 +10,7 @@
         "origins:water_vision",
         "origins:like_water",
         "customorigins:amphibious",
-        "moborigins:slippery",
+        "customorigins:slippery",
         "customorigins:no_netherite",
         "origins:swim_speed",
         "origins:fall_immunity",

@@ -1,23 +1,7 @@
-/*
- * PlayerAbilityLib
- * Copyright (C) 2019-2020 Ladysnake
- *
- * This program is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation; either
- * version 3 of the License, or (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * Lesser General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General Public License
- * along with this program; If not, see <https://www.gnu.org/licenses>.
- */
 package io.github.padlocks.customorigins.impl.mixin;
 
 import com.mojang.authlib.GameProfile;
+
 import io.github.padlocks.customorigins.AbilityTracker;
 import io.github.padlocks.customorigins.Pal;
 import io.github.padlocks.customorigins.PlayerAbility;
@@ -36,22 +20,26 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.network.ServerPlayerInteractionManager;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvent;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Random;
 
 @Mixin(ServerPlayerEntity.class)
 public abstract class ServerPlayerEntityMixin extends PlayerEntity implements PlayerAbilityView {
+    private static final SoundEvent[] SOUND_EVENTS = { SoundEvents.AMBIENT_SOUL_SAND_VALLEY_ADDITIONS, SoundEvents.PARTICLE_SOUL_ESCAPE };
     @Unique
     private final Map<PlayerAbility, AbilityTracker> palAbilities = new LinkedHashMap<>();
 
@@ -127,18 +115,35 @@ public abstract class ServerPlayerEntityMixin extends PlayerEntity implements Pl
         }
     }
 
-    // BUMBLE
-    public float speed = 0.0155f;
+    int statusTimer = 0;
+    int soulAmbienceTimer = 0;
+    SoundEvent[] ambienceChoices = SOUND_EVENTS;
     @Inject(at = @At("TAIL"), method = "tick")
     private void tick(CallbackInfo info) {
-        if (!world.isClient) {
-            if (CustomOriginsPowers.BUMBLE.isActive((PlayerEntity) (Object) this)) {
-                if ((PlayerEntity) (Object) this instanceof PlayerEntity) {
+        PlayerEntity player = (PlayerEntity) (Object) this;
+
+        // BUMBLE
+        if (CustomOriginsPowers.BUMBLE.isActive(player)) {
+            if (!world.isClient) {
+                if (player instanceof PlayerEntity) {
                     Pal.grantAbility((PlayerEntity) (Object) this, VanillaAbilities.ALLOW_FLYING,
                             FlightEffect.FLIGHT_POTION);
                 }
             }
-            return;
         }
+
+        // HAUNTED
+        if (CustomOriginsPowers.HAUNTED.isActive(player)) {
+            if (!world.isClient && player instanceof PlayerEntity) {
+                if (soulAmbienceTimer >= ((Math.random() * (1200 - 80)) + 80)) {
+                    soulAmbienceTimer = 0;
+                    world.playSound(null, player.getBlockPos(), 
+                            ambienceChoices[new Random().nextInt(ambienceChoices.length)], SoundCategory.AMBIENT, 1.5f, 1f);
+                }
+                soulAmbienceTimer++;
+            }
+        }
+
+        return;
     }
 }

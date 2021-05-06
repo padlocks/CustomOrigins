@@ -1,0 +1,28 @@
+{
+    "type":"origins:multiple",
+    "slowness": {
+        "type": "origins:stacking_status_effect",
+        "min_stacks": 0,
+        "max_stacks": 1,
+        "duration_per_stack": 30,
+        "effect": {
+            "effect": "slowness",
+            "amplifier": 2,
+            "is_ambient": true,
+            "show_particles": false,
+            "show_icon": false
+        }
+    },
+    "damage_reduction": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "name": "Origin modifier",
+            "value": 1.5,
+            "operation": "multiply_base"
+        }
+    },
+    "condition": {
+        "type": "origins:dimension",
+        "dimension": "the_nether"
+    }
+}

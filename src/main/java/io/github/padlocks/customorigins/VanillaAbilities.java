@@ -63,7 +63,6 @@ public final class VanillaAbilities {
         (ability, player) -> new VanillaAbilityTracker(ability, player, (g, a, e) -> {
             a.allowFlying = e || !g.isSurvivalLike();
             a.flying &= a.allowFlying;
-            //player.abilities.setFlySpeed(0.0155f);
         }, a -> a.allowFlying));
 
     /**

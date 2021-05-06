@@ -15,5 +15,26 @@
   "power.customorigins.homebody.description": "You simply HAVE to return home at night. The thought of being out and about and away from your hive at such a dangerous time makes you ill.",
 
   "power.customorigins.sting.name": "Stinger",
-  "power.customorigins.sting.description": "You can sting whilst attacking, inflicting temporary poison."
+  "power.customorigins.sting.description": "You can sting whilst attacking, inflicting temporary poison.",
+
+  "origin.customorigins.lost_soul.name": "Lost Soul",
+  "origin.customorigins.lost_soul.description": "u sad bitch,, ):",
+
+  "power.customorigins.haunted.name": "Haunted",
+  "power.customorigins.haunted.description": "The sounds of the tortured souls ring in your head.",
+
+  "power.customorigins.trauma.name": "Trauma",
+  "power.customorigins.trauma.description": "The thought of being in the nether sends you into a panic, making you slow and vulnerable.",
+
+  "power.customorigins.will_to_live.name": "Will to Live",
+  "power.customorigins.will_to_live.description": "Knowing what it's like to die, you will do anything you possibly can to stay alive, making you hit harder and immune to knockback. You also have 3 hearts less.",
+
+  "power.customorigins.safe_space.name": "Safe Space",
+  "power.customorigins.safe_space.description": "You long for cooler temperatures after being dead for so long. You gain both strength and resistance in cold weather.",
+
+  "power.customorigins.apparition.name": "Apparition",
+  "power.customorigins.apparition.description": "While you are naturally invisible, you are able to show yourself at the expense of exhaustion.",
+
+  "power.customorigins.phasing.name": "Intangibility",
+  "power.customorigins.phasing.description": "While you apperate, you can phase through any solid material, except Obsidian."
 }

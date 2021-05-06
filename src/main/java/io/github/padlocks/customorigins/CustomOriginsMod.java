@@ -7,7 +7,6 @@ import io.github.padlocks.customorigins.power.CustomOriginPowerFactories;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.util.Identifier;
 import net.minecraft.enchantment.Enchantment;
-import net.minecraft.item.Item;
 import net.minecraft.util.registry.Registry;
 
 public class CustomOriginsMod implements ModInitializer {

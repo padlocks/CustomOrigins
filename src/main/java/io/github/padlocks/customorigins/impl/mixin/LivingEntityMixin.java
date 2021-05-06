@@ -11,8 +11,6 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 
-import java.util.List;
-
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin extends Entity {
 
@@ -20,6 +18,7 @@ public abstract class LivingEntityMixin extends Entity {
         super(type, world);
     }
 
+    // SLIPPERY
     @ModifyVariable(method = "travel", at = @At(value = "INVOKE_ASSIGN", target = "Lnet/minecraft/block/Block;getSlipperiness()F"))
     public float changeSlipperiness$MobOrigins(float t) {
         int level = EnchantmentHelper.getEquipmentLevel(CustomOriginsMod.GROUND_SPIKES, (LivingEntity) (Object) this);

@@ -1,0 +1,53 @@
+{
+    "type": "origins:multiple",
+    "o___0": {
+        "type": "origins:action_over_time",
+        "interval": 20,
+        "entity_action": {
+            "type": "origins:apply_effect",
+            "effect": {
+                "is_ambient": false,
+                "show_particles": false,
+                "show_icon": false,
+                "effect": "minecraft:resistance",
+                "amplifier": 1,
+                "duration": 30
+            }
+        },
+        "condition": {
+            "type": "origins:biome",
+            "inverted": false,
+            "condition": {
+                "type": "origins:temperature",
+                "inverted": false,
+                "comparison": "<",
+                "compare_to": 0.2
+            }
+        }
+    },
+    "o___1": {
+        "type": "origins:action_over_time",
+        "interval": 20,
+        "entity_action": {
+            "type": "origins:apply_effect",
+            "effect": {
+                "is_ambient": false,
+                "show_particles": false,
+                "show_icon": false,
+                "effect": "minecraft:strength",
+                "amplifier": 0,
+                "duration": 30
+            }
+        },
+        "condition": {
+            "type": "origins:biome",
+            "inverted": false,
+            "condition": {
+                "type": "origins:temperature",
+                "inverted": false,
+                "comparison": "<",
+                "compare_to": 0.2
+            }
+        }
+    }
+}

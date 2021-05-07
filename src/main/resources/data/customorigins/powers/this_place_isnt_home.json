@@ -11,6 +11,10 @@
             "is_ambient": true,
             "show_particles": false,
             "show_icon": false
+        },
+        "condition": {
+            "type": "origins:dimension",
+            "dimension": "the_nether"
         }
     },
     "damage_reduction": {
@@ -19,10 +23,10 @@
             "name": "Origin modifier",
             "value": 1.5,
             "operation": "multiply_base"
+        },
+        "condition": {
+            "type": "origins:dimension",
+            "dimension": "the_nether"
         }
-    },
-    "condition": {
-        "type": "origins:dimension",
-        "dimension": "the_nether"
     }
 }

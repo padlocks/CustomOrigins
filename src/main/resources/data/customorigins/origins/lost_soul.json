@@ -2,7 +2,6 @@
     "powers": [
         "customorigins:will_to_live",
         "customorigins:safe_space",
-        "origins:burn_in_daylight",
         "customorigins:invisibility",
         "customorigins:translucent",
         "customorigins:fakephantomize",
@@ -10,8 +9,13 @@
         "customorigins:apparition",
         "customorigins:intangibility",
         "customorigins:phasing",
+        "customorigins:phase_exhaust",
+        "origins:burn_in_daylight",
         "customorigins:haunted",
-        "customorigins:trauma"
+        "customorigins:this_place_isnt_home",
+        "customorigins:soul_particles",
+        "customorigins:soul_fire",
+        "customorigins:dust_particles"
     ],
     "icon": "minecraft:soul_campfire",
     "order": 4,

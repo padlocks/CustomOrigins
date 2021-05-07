@@ -1,0 +1,10 @@
+{
+    "type": "origins:particle",
+    "particle": "minecraft:soul_fire_flame",
+    "frequency": 1,
+    "hidden": true,
+    "condition": {
+        "type": "origins:power_active",
+        "power": "*:phantomize"
+    }
+}

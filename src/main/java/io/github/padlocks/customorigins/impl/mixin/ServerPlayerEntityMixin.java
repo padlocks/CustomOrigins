@@ -2,7 +2,10 @@ package io.github.padlocks.customorigins.impl.mixin;
 
 import com.mojang.authlib.GameProfile;
 
+import io.github.apace100.origins.power.ModelColorPower;
+import io.github.apace100.origins.power.PowerType;
 import io.github.padlocks.customorigins.AbilityTracker;
+import io.github.padlocks.customorigins.CustomOriginsMod;
 import io.github.padlocks.customorigins.Pal;
 import io.github.padlocks.customorigins.PlayerAbility;
 import io.github.padlocks.customorigins.VanillaAbilities;
@@ -12,6 +15,9 @@ import io.github.padlocks.customorigins.impl.PlayerAbilityView;
 import io.github.padlocks.customorigins.impl.VanillaAbilityTracker;
 import io.github.padlocks.customorigins.power.CustomOriginsPowers;
 import net.fabricmc.fabric.api.util.NbtType;
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
@@ -32,13 +38,17 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
 @Mixin(ServerPlayerEntity.class)
 public abstract class ServerPlayerEntityMixin extends PlayerEntity implements PlayerAbilityView {
+    private static final Logger LOGGER = LogManager.getLogger();
     private static final SoundEvent[] SOUND_EVENTS = { SoundEvents.AMBIENT_SOUL_SAND_VALLEY_ADDITIONS, SoundEvents.PARTICLE_SOUL_ESCAPE };
     @Unique
     private final Map<PlayerAbility, AbilityTracker> palAbilities = new LinkedHashMap<>();
@@ -134,7 +144,8 @@ public abstract class ServerPlayerEntityMixin extends PlayerEntity implements Pl
 
         // HAUNTED
         if (CustomOriginsPowers.HAUNTED.isActive(player)) {
-            if (!world.isClient && player instanceof PlayerEntity) {
+            int level = EnchantmentHelper.getEquipmentLevel(CustomOriginsMod.HEADPHONES, (LivingEntity) player);
+            if (!world.isClient && player instanceof PlayerEntity && level == 0) {
                 if (soulAmbienceTimer >= ((Math.random() * (1200 - 80)) + 80)) {
                     soulAmbienceTimer = 0;
                     world.playSound(null, player.getBlockPos(), 

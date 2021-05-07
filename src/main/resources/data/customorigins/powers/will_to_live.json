@@ -10,12 +10,6 @@
                 "operation": "addition"
             },
             {
-                "name": "Attack Buff",
-                "attribute": "generic.attack_damage",
-                "value": 2,
-                "operation": "addition"
-            },
-            {
                 "name": "Knockback Resistance",
                 "attribute": "generic.knockback_resistance",
                 "value": 1,
@@ -40,5 +34,42 @@
             }
         },
         "cooldown": 100
+    },
+    "undying_1": {
+        "type": "origins:attribute",
+        "modifier": {
+            "name": "more attack lol",
+            "attribute": "generic.attack_damage",
+            "value": 1,
+            "operation": "addition"
+        },
+        "conditions": [
+            {
+                "type": "origins:health",
+                "comparison": "<",
+                "compare_to": 4
+            },
+            {
+                "type": "origins:health",
+                "comparison": ">",
+                "compare_to": 2
+            }
+        ]
+    },
+    "undying_2": {
+        "type": "origins:attribute",
+        "modifier": {
+            "name": "more attack lol",
+            "attribute": "generic.attack_damage",
+            "value": 1,
+            "operation": "addition"
+        },
+        "conditions": [
+            {
+                "type": "origins:health",
+                "comparison": "<",
+                "compare_to": 2
+            }
+        ]
     }
 }

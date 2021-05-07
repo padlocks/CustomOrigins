@@ -1,0 +1,109 @@
+{
+    "hidden": true,
+    "type": "origins:multiple",
+    "1": {
+        "type": "origins:model_color",
+        "alpha": 0.5,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:brightness",
+                    "comparison": "<",
+                    "compare_to": "0.3"
+                },
+                {
+                    "type": "origins:power_active",
+                    "power": "*:phantomize"
+                }
+             ]
+        }
+    },
+    "2": {
+        "type": "origins:model_color",
+        "alpha": 0.4,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:brightness",
+                    "comparison": ">",
+                    "compare_to": "0.3"
+                },
+                {
+                    "type": "origins:brightness",
+                    "comparison": "<",
+                    "compare_to": "0.4"
+                },
+                {
+                    "type": "origins:power_active",
+                    "power": "*:phantomize"
+                }
+            ]
+        }
+    },
+    "3": {
+        "type": "origins:model_color",
+        "alpha": 0.35,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:brightness",
+                    "comparison": ">",
+                    "compare_to": "0.4"
+                },
+                {
+                    "type": "origins:brightness",
+                    "comparison": "<",
+                    "compare_to": "0.5"
+                },
+                {
+                    "type": "origins:power_active",
+                    "power": "*:phantomize"
+                }
+            ]
+        }
+    },
+    "4": {
+        "type": "origins:model_color",
+        "alpha": 0.2,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:brightness",
+                    "comparison": ">",
+                    "compare_to": "0.5"
+                 },
+                 {
+                    "type": "origins:brightness",
+                    "comparison": "<",
+                    "compare_to": "0.6"
+                },
+                {
+                    "type": "origins:power_active",
+                    "power": "*:phantomize"
+                }
+             ]
+        }
+    },
+    "5": {
+        "type": "origins:model_color",
+        "alpha": 0.1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:brightness",
+                    "comparison": ">",
+                    "compare_to": "0.6"
+                },
+                {
+                    "type": "origins:power_active",
+                    "power": "*:phantomize"
+                }
+            ]
+        }
+    }
+}

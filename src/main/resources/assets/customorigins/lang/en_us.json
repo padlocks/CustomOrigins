@@ -17,14 +17,17 @@
   "power.customorigins.sting.name": "Stinger",
   "power.customorigins.sting.description": "You can sting whilst attacking, inflicting temporary poison.",
 
+  "power.customorigins.queen_bee.name": "Queen Bee",
+  "power.customorigins.queen_bee.description": "When you collect honey, the bees won't try to attack you.",
+
   "origin.customorigins.lost_soul.name": "Lost Soul",
   "origin.customorigins.lost_soul.description": "u sad bitch,, ):",
 
   "power.customorigins.haunted.name": "Haunted",
-  "power.customorigins.haunted.description": "The sounds of the tortured souls ring in your head.",
+  "power.customorigins.haunted.description": "The sounds of the tortured souls ring in your head. (Adjustable via Ambient volume controller)",
 
-  "power.customorigins.trauma.name": "Trauma",
-  "power.customorigins.trauma.description": "The thought of being in the nether sends you into a panic, making you slow and vulnerable.",
+  "power.customorigins.this_place_isnt_home.name": "This Place Isn't Home",
+  "power.customorigins.this_place_isnt_home.description": "The thought of being in the nether sends you into a panic, making you slow and vulnerable. You take 1.5x damage in the nether.",
 
   "power.customorigins.will_to_live.name": "Will to Live",
   "power.customorigins.will_to_live.description": "Knowing what it's like to die, you will do anything you possibly can to stay alive, making you hit harder and immune to knockback. You also have 3 hearts less.",
@@ -36,5 +39,9 @@
   "power.customorigins.apparition.description": "While you are naturally invisible, you are able to show yourself at the expense of exhaustion.",
 
   "power.customorigins.phasing.name": "Intangibility",
-  "power.customorigins.phasing.description": "While you apperate, you can phase through any solid material, except Obsidian."
+  "power.customorigins.phasing.description": "While you apperate, you can phase through any solid material, except Obsidian. Phasing is exhausting. (Stacks with Apparition)",
+
+  "enchantment.customorigins.headphones": "Headphones",
+  "enchantment.customorigins.heat_protection": "Heat Protection",
+  "enchantment.customorigins.ground_spikes": "Ground Spikes"
 }

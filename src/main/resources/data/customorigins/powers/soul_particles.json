@@ -1,0 +1,10 @@
+{
+    "type": "origins:particle",
+    "particle": "minecraft:soul",
+    "frequency": 2,
+    "hidden": true,
+    "condition": {
+        "type": "origins:power_active",
+        "power": "*:phantomize"
+    }
+}

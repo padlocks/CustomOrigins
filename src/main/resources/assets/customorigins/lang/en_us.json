@@ -1,4 +1,10 @@
 {
+  "title.customorigins.config": "Custom Ovis Origins Config",
+  "category.customorigins.general": "General",
+
+  "option.customorigins.autoUpdate": "Auto-Update",
+  "option.tooltip.customorigins.autoUpdate": "Automatically download and install new versions when they come out.",
+
   "origin.customorigins.honeybee.name": "Honeybee",
   "origin.customorigins.honeybee.description": "A flying insect that pollinates the world, spreading flowers and honey all around.",
 

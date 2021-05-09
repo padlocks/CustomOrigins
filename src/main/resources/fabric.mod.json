@@ -25,6 +25,9 @@
     ],
     "main": [
       "io.github.padlocks.customorigins.CustomOriginsMod"
+    ],
+    "modmenu": [
+      "io.github.padlocks.customorigins.client.ModMenuIntegration"
     ]
   },
   "mixins": [

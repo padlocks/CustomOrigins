@@ -18,7 +18,7 @@ public class UpdateToast implements Toast {
         RenderSystem.color3f(1.0F, 1.0F, 1.0F);
         manager.drawTexture(matrices, 0, 0, 0, 0, getWidth(), getHeight());
         manager.getGame().textRenderer.draw(matrices, new LiteralText("Custom Ovis Origins update available!"), 34, 7, -256);
-        manager.getGame().textRenderer.draw(matrices, new LiteralText("The update has been automatically downloaded."), 34,
+        manager.getGame().textRenderer.draw(matrices, new LiteralText("Update was automatically downloaded."), 34,
                 18, -1);
         manager.getGame().textRenderer.draw(matrices, new LiteralText("Restart your game to finish installing."), 34, 29,
                 -1);

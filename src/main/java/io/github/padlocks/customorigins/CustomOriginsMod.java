@@ -16,7 +16,6 @@ import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ProjectileUtil;
 import net.minecraft.text.Style;
 import net.minecraft.util.Formatting;
@@ -33,7 +32,7 @@ public class CustomOriginsMod implements ModInitializer {
     public static Formatting SF = Formatting.YELLOW;
     public static Style DS = Style.EMPTY.withColor(DF);
     public static Style SS = Style.EMPTY.withColor(SF);
-    
+
     public static final Logger log = LogManager.getLogger("CustomOrigins");
     public static final String MOD_ID = "customorigins";
     

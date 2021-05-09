@@ -36,7 +36,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class CustomOriginsUpdater {
-    // https://api.github.com/repos/padlocks/customorigins/releases/latest
     private static final String UPDATES_URL = "https://api.github.com/repos/padlocks/customorigins/releases/latest";
     private static final String UNINSTALLER = "customorigins-uninstaller.jar";
     static final ArrayList<String> UNINSTALLER_PARAMS = new ArrayList<>();
@@ -91,7 +90,7 @@ public class CustomOriginsUpdater {
                         long publishedTime = publishedDate.toEpochSecond();
                         String latestTag = latestVersionJson.get("tag_name").getAsString();
                         String latestVersion = latestVersionJson.get("tag_name").getAsString().replace("v", "");
-                        String latestFileName = "customorigins-" + latestVersion + ".future";
+                        String latestFileName = "customorigins-" + latestVersion + ".jar.future";
                         // if not the latest version, update toast
                         try {
                             if (SemanticVersion.parse(latestVersion).compareTo(SemanticVersion.parse(modVersion)) > 0) {

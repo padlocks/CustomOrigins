@@ -41,6 +41,9 @@
   "power.customorigins.phasing.name": "Intangibility",
   "power.customorigins.phasing.description": "While you apperate, you can phase through any solid material, except Obsidian. Phasing is exhausting. (Stacks with Apparition)",
 
+  "power.customorigins.undead.name": "Undead",
+  "power.customorigins.undead.description": "Surrounding creatures identify you as undead, resulting in animals and villagers running away from you and undead mobs passive toward you.",
+
   "enchantment.customorigins.headphones": "Headphones",
   "enchantment.customorigins.heat_protection": "Heat Protection",
   "enchantment.customorigins.ground_spikes": "Ground Spikes"

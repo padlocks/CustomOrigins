@@ -1,7 +1,7 @@
 {
     "type": "origins:particle",
     "particle": "minecraft:soul",
-    "frequency": 2,
+    "frequency": 1,
     "hidden": true,
     "condition": {
         "type": "origins:power_active",

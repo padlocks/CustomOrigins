@@ -10,7 +10,8 @@
     "HookClientPlayerTick",
     "HookPlayerFlightSpeed",
     "ServerPlayerEntityMixin",
-    "ServerPlayerInteractionManagerMixin"
+    "ServerPlayerInteractionManagerMixin",
+    "TitleScreenMixin"
   ],
   "client": [
   ],

@@ -14,6 +14,12 @@
   "icon": "assets/customorigins/icon.png",
   "environment": "*",
   "entrypoints": {
+    "anvilCommonEvents": [
+      "io.github.padlocks.customorigins.event.CommonEvents"
+    ],
+    "anvilCommonListeners": [
+      "io.github.padlocks.customorigins.event.CommonListeners"
+    ],
     "client": [
       "io.github.padlocks.customorigins.client.CustomOriginsClient"
     ],

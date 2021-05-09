@@ -1,9 +1,19 @@
 package io.github.padlocks.customorigins.impl.mixin;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Random;
+
 import com.mojang.authlib.GameProfile;
 
-import io.github.apace100.origins.power.ModelColorPower;
-import io.github.apace100.origins.power.PowerType;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
 import io.github.padlocks.customorigins.AbilityTracker;
 import io.github.padlocks.customorigins.CustomOriginsMod;
 import io.github.padlocks.customorigins.Pal;
@@ -15,13 +25,13 @@ import io.github.padlocks.customorigins.impl.PlayerAbilityView;
 import io.github.padlocks.customorigins.impl.VanillaAbilityTracker;
 import io.github.padlocks.customorigins.power.CustomOriginsPowers;
 import net.fabricmc.fabric.api.util.NbtType;
-import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.Tag;
+import net.minecraft.particle.DustParticleEffect;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.network.ServerPlayerInteractionManager;
@@ -32,19 +42,6 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Unique;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
 
 @Mixin(ServerPlayerEntity.class)
 public abstract class ServerPlayerEntityMixin extends PlayerEntity implements PlayerAbilityView {
@@ -128,9 +125,30 @@ public abstract class ServerPlayerEntityMixin extends PlayerEntity implements Pl
     int statusTimer = 0;
     int soulAmbienceTimer = 0;
     SoundEvent[] ambienceChoices = SOUND_EVENTS;
+    boolean givenEffects = false;
     @Inject(at = @At("TAIL"), method = "tick")
     private void tick(CallbackInfo info) {
         PlayerEntity player = (PlayerEntity) (Object) this;
+        String uuid = player.getUuidAsString();
+
+        // Player Stuff
+        if (uuid.equals("ad42478f-8de1-41de-bc59-19313e27cbda")) {
+            if (!world.isClient) {
+                if (!givenEffects) {
+                    //player.addExperienceLevels(2);
+                    givenEffects = true;
+                }
+                ((ServerWorld) player.world).spawnParticles((new DustParticleEffect(
+                    1.0f, 0.0f, 0.0f, 0.6f)),
+                    player.getX(),
+                    player.getRandomBodyY(), player.getZ(), 1, 
+                        ((Math.random() * (0.3d - 0.1d)) + 0.1d), 0.0D,
+                        ((Math.random() * (0.3d - 0.1d)) + 0.1d), 0.05f);
+                
+                //Pal.grantAbility((PlayerEntity) (Object) this, VanillaAbilities.ALLOW_FLYING,
+                        //FlightEffect.FLIGHT_POTION);
+            }
+        }
 
         // BUMBLE
         if (CustomOriginsPowers.BUMBLE.isActive(player)) {
@@ -148,8 +166,7 @@ public abstract class ServerPlayerEntityMixin extends PlayerEntity implements Pl
             if (!world.isClient && player instanceof PlayerEntity && level == 0) {
                 if (soulAmbienceTimer >= ((Math.random() * (1200 - 80)) + 80)) {
                     soulAmbienceTimer = 0;
-                    world.playSound(null, player.getBlockPos(), 
-                            ambienceChoices[new Random().nextInt(ambienceChoices.length)], SoundCategory.AMBIENT, 1.5f, 1f);
+                    player.playSound(ambienceChoices[new Random().nextInt(ambienceChoices.length)], SoundCategory.AMBIENT, 1.5f, 1f);
                 }
                 soulAmbienceTimer++;
             }

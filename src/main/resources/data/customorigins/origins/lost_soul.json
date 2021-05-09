@@ -11,11 +11,10 @@
         "customorigins:phasing",
         "customorigins:phase_exhaust",
         "origins:burn_in_daylight",
+        "customorigins:undead",
         "customorigins:haunted",
         "customorigins:this_place_isnt_home",
-        "customorigins:soul_particles",
-        "customorigins:soul_fire",
-        "customorigins:dust_particles"
+        "customorigins:soul_fire"
     ],
     "icon": "minecraft:soul_campfire",
     "order": 4,

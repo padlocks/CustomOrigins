@@ -37,6 +37,14 @@ public class ModMenuIntegration implements ModMenuApi {
                     .setSaveConsumer(Config::setAutoUpdate)
                     .setDefaultValue(true)
                     .build());
+            
+            general.addEntry(entryBuilder
+                    .startBooleanToggle(new TranslatableText("option.customorigins.uniqueParticles"), Config.uniqueParticlesEnabled())
+                    .setTooltip(
+                            new TranslatableText("option.tooltip.customorigins.uniqueParticles"))
+                    .setSaveConsumer(Config::setUniqueParticles)
+                    .setDefaultValue(true)
+                    .build());
 
             // build and return the config screen
             return builder.build();

@@ -1,5 +1,11 @@
 package io.github.padlocks.customorigins.client;
 
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.network.ClientPlayerEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.network.PacketByteBuf;
+import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
+import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.fabricmc.loader.api.FabricLoader;
 
 import java.io.IOException;
@@ -7,11 +13,14 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Properties;
 
+import io.github.padlocks.customorigins.networking.NetworkingConstants;
+
 public class Config {
     public static final Path PROPERTIES_PATH = FabricLoader.getInstance().getConfigDir()
             .resolve("customorigins.properties");
     private static final Properties config = new Properties();
     private static boolean autoUpdate;
+    private static boolean uniqueParticles;
     private static boolean displayGreetingScreen;
 
     public static void load() {
@@ -26,13 +35,16 @@ public class Config {
         } else { // if no customorigins.properties, load default values
             // define default properties
             setAutoUpdate(true);
+            setUniqueParticles(true);
             setDisplayGreetingScreen(true);
         }
 
         try {
             autoUpdate = Boolean.parseBoolean(config.getProperty("auto-update"));
+            uniqueParticles = Boolean.parseBoolean(config.getProperty("unique-particles"));
         } catch (Exception e) {
             setAutoUpdate(true);
+            setUniqueParticles(true);
             setDisplayGreetingScreen(true);
         }
     }
@@ -49,10 +61,30 @@ public class Config {
         return autoUpdate;
     }
 
+    public static boolean uniqueParticlesEnabled() {
+        String uuid = MinecraftClient.getInstance().player.getUuidAsString();
+        PacketByteBuf buf = PacketByteBufs.create();
+        buf.writeString(uuid);
+        buf.writeBoolean(uniqueParticles);
+        ClientPlayNetworking.send(NetworkingConstants.UPDATE_CONFIG, buf);
+        return uniqueParticles;
+    }
+
     public static void setAutoUpdate(boolean value) {
         autoUpdate = value;
         config.setProperty("auto-update", Boolean.toString(value));
         Config.save();
+    }
+
+    public static void setUniqueParticles(boolean value) {
+        autoUpdate = value;
+        config.setProperty("unique-particles", Boolean.toString(value));
+        Config.save();
+        String uuid = MinecraftClient.getInstance().player.getUuidAsString();
+        PacketByteBuf buf = PacketByteBufs.create();
+        buf.writeString(uuid);
+        buf.writeBoolean(uniqueParticles);
+        ClientPlayNetworking.send(NetworkingConstants.UPDATE_CONFIG, buf);
     }
 
     public static boolean isDisplayGreetingScreen() {

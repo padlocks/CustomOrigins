@@ -5,6 +5,9 @@
   "option.customorigins.autoUpdate": "Auto-Update",
   "option.tooltip.customorigins.autoUpdate": "Automatically download and install new versions when they come out.",
 
+  "option.customorigins.uniqueParticles": "Unique Particles",
+  "option.tooltip.customorigins.uniqueParticles": "Toggles special particle effects if you have any.",
+
   "origin.customorigins.honeybee.name": "Honeybee",
   "origin.customorigins.honeybee.description": "A flying insect that pollinates the world, spreading flowers and honey all around.",
 
@@ -27,7 +30,7 @@
   "power.customorigins.queen_bee.description": "When you collect honey, the bees won't try to attack you.",
 
   "origin.customorigins.lost_soul.name": "Lost Soul",
-  "origin.customorigins.lost_soul.description": "u sad bitch,, ):",
+  "origin.customorigins.lost_soul.description": "A soul who fell out of their body and into the Nether. Wishing to reunite itself with its misplaced body, it returns to the overworld.",
 
   "power.customorigins.haunted.name": "Haunted",
   "power.customorigins.haunted.description": "The sounds of the tortured souls ring in your head. (Adjustable via Ambient volume controller)",

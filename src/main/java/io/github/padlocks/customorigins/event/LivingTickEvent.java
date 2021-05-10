@@ -1,9 +1,6 @@
 package io.github.padlocks.customorigins.event;
 
-import java.util.Collection;
-
 import net.minecraft.entity.LivingEntity;
-import user11681.anvil.event.AnvilEvent;
 
 public abstract class LivingTickEvent extends LivingEntityEvent {
     public LivingTickEvent(final LivingEntity entity) {

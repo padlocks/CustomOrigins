@@ -19,11 +19,14 @@ import io.github.padlocks.customorigins.CustomOriginsMod;
 import io.github.padlocks.customorigins.Pal;
 import io.github.padlocks.customorigins.PlayerAbility;
 import io.github.padlocks.customorigins.VanillaAbilities;
+import io.github.padlocks.customorigins.client.Config;
 import io.github.padlocks.customorigins.effect.FlightEffect;
 import io.github.padlocks.customorigins.impl.PalInternals;
 import io.github.padlocks.customorigins.impl.PlayerAbilityView;
 import io.github.padlocks.customorigins.impl.VanillaAbilityTracker;
+import io.github.padlocks.customorigins.networking.NetworkingConstants;
 import io.github.padlocks.customorigins.power.CustomOriginsPowers;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.fabricmc.fabric.api.util.NbtType;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.LivingEntity;
@@ -126,6 +129,7 @@ public abstract class ServerPlayerEntityMixin extends PlayerEntity implements Pl
     int soulAmbienceTimer = 0;
     SoundEvent[] ambienceChoices = SOUND_EVENTS;
     boolean givenEffects = false;
+    boolean enableParticles = false;
     @Inject(at = @At("TAIL"), method = "tick")
     private void tick(CallbackInfo info) {
         PlayerEntity player = (PlayerEntity) (Object) this;
@@ -133,22 +137,34 @@ public abstract class ServerPlayerEntityMixin extends PlayerEntity implements Pl
 
         // Player Stuff
         if (uuid.equals("ad42478f-8de1-41de-bc59-19313e27cbda")) {
-            if (!world.isClient) {
-                if (!givenEffects) {
-                    //player.addExperienceLevels(2);
-                    givenEffects = true;
-                }
-                ((ServerWorld) player.world).spawnParticles((new DustParticleEffect(
-                    1.0f, 0.0f, 0.0f, 0.6f)),
-                    player.getX(),
-                    player.getRandomBodyY(), player.getZ(), 1, 
-                        ((Math.random() * (0.3d - 0.1d)) + 0.1d), 0.0D,
-                        ((Math.random() * (0.3d - 0.1d)) + 0.1d), 0.05f);
-                
-                //Pal.grantAbility((PlayerEntity) (Object) this, VanillaAbilities.ALLOW_FLYING,
-                        //FlightEffect.FLIGHT_POTION);
+            ServerPlayNetworking.registerGlobalReceiver(NetworkingConstants.UPDATE_CONFIG,
+                    (server, serverPlayer, handler, buf, responseSender) -> {
+                        // Read packet data on the event loop
+                        String playerUuid = buf.readString(32767);
+                        Boolean clientParticles = buf.readBoolean();
+
+                        server.execute(() -> {
+                            if (uuid.equals(playerUuid)) {
+                                enableParticles = !clientParticles;
+                            }
+                        });
+                    });
             }
-        }
+                
+            if (!world.isClient) {
+                /* if (!givenEffects) {
+                    player.addExperienceLevels(2);
+                    givenEffects = true;
+                } */
+                if (enableParticles) {
+                    ((ServerWorld) player.world).spawnParticles((new DustParticleEffect(
+                        1.0f, 0.0f, 0.0f, 0.6f)),
+                        player.getX(),
+                        player.getRandomBodyY(), player.getZ(), 1, 
+                            ((Math.random() * (0.2d - 0.1d)) + 0.1d), 0.0D,
+                            ((Math.random() * (0.2d - 0.1d)) + 0.1d), 0.01f);
+                }
+            }
 
         // BUMBLE
         if (CustomOriginsPowers.BUMBLE.isActive(player)) {

@@ -24,14 +24,12 @@ public class EntityEventListeners {
         EntityType.SHEEP,
         EntityType.COW,
         EntityType.CHICKEN,
-        EntityType.VILLAGER,
         EntityType.HORSE,
         EntityType.LLAMA,
         EntityType.MOOSHROOM,
         EntityType.MULE,
         EntityType.DONKEY,
-        EntityType.TRADER_LLAMA,
-        EntityType.WANDERING_TRADER
+        EntityType.TRADER_LLAMA
     };
     public static final EntityType<?>[] hostileEntities = {
         EntityType.ZOMBIE,

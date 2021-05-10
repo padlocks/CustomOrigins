@@ -14,7 +14,8 @@
         "customorigins:undead",
         "customorigins:haunted",
         "customorigins:this_place_isnt_home",
-        "customorigins:soul_fire"
+        "customorigins:soul_fire",
+        "customorigins:no_fall_damage_while_phasing"
     ],
     "icon": "minecraft:soul_campfire",
     "order": 4,

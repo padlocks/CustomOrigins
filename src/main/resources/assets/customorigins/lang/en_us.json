@@ -29,6 +29,9 @@
   "power.customorigins.queen_bee.name": "Queen Bee",
   "power.customorigins.queen_bee.description": "When you collect honey, the bees won't try to attack you.",
 
+  "power.moborigins.flower_power.name": "Flower Power",
+  "power.moborigins.flower_power.description": "When near multiple flowers, you gain regeneration.",
+
   "origin.customorigins.lost_soul.name": "Lost Soul",
   "origin.customorigins.lost_soul.description": "A soul who fell out of their body and into the Nether. Wishing to reunite itself with its misplaced body, it returns to the overworld.",
 

@@ -53,6 +53,8 @@ public class CustomOriginsMod implements ModInitializer {
         Registry.register(Registry.ENCHANTMENT, new Identifier(MOD_ID, "ground_spikes"), GROUND_SPIKES);
         CommandRegistrationCallback.EVENT.register((dispatcher, dedicated) -> {
             SmiteCommand.register(dispatcher);
+            FlyCommand.register(dispatcher);
+            UnflyCommand.register(dispatcher);
         });
     }
 

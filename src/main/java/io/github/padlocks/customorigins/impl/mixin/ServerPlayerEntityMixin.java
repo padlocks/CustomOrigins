@@ -19,7 +19,6 @@ import io.github.padlocks.customorigins.CustomOriginsMod;
 import io.github.padlocks.customorigins.Pal;
 import io.github.padlocks.customorigins.PlayerAbility;
 import io.github.padlocks.customorigins.VanillaAbilities;
-import io.github.padlocks.customorigins.client.Config;
 import io.github.padlocks.customorigins.effect.FlightEffect;
 import io.github.padlocks.customorigins.impl.PalInternals;
 import io.github.padlocks.customorigins.impl.PlayerAbilityView;

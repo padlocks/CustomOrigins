@@ -1,8 +1,6 @@
 package io.github.padlocks.customorigins.client;
 
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.network.ClientPlayerEntity;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.network.PacketByteBuf;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
@@ -62,11 +60,14 @@ public class Config {
     }
 
     public static boolean uniqueParticlesEnabled() {
-        String uuid = MinecraftClient.getInstance().player.getUuidAsString();
-        PacketByteBuf buf = PacketByteBufs.create();
-        buf.writeString(uuid);
-        buf.writeBoolean(uniqueParticles);
-        ClientPlayNetworking.send(NetworkingConstants.UPDATE_CONFIG, buf);
+        if (MinecraftClient.getInstance().player != null) {
+            String uuid = MinecraftClient.getInstance().player.getUuidAsString();
+            PacketByteBuf buf = PacketByteBufs.create();
+            buf.writeString(uuid);
+            buf.writeBoolean(uniqueParticles);
+            ClientPlayNetworking.send(NetworkingConstants.UPDATE_CONFIG, buf);
+        }
+        
         return uniqueParticles;
     }
 
@@ -80,11 +81,14 @@ public class Config {
         autoUpdate = value;
         config.setProperty("unique-particles", Boolean.toString(value));
         Config.save();
-        String uuid = MinecraftClient.getInstance().player.getUuidAsString();
-        PacketByteBuf buf = PacketByteBufs.create();
-        buf.writeString(uuid);
-        buf.writeBoolean(uniqueParticles);
-        ClientPlayNetworking.send(NetworkingConstants.UPDATE_CONFIG, buf);
+        if (MinecraftClient.getInstance().player != null) {
+            String uuid = MinecraftClient.getInstance().player.getUuidAsString();
+            PacketByteBuf buf = PacketByteBufs.create();
+            buf.writeString(uuid);
+            buf.writeBoolean(uniqueParticles);
+            ClientPlayNetworking.send(NetworkingConstants.UPDATE_CONFIG, buf);
+        }
+
     }
 
     public static boolean isDisplayGreetingScreen() {

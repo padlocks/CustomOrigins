@@ -14,7 +14,7 @@ import java.util.List;
 public class BeehiveBlockMixin {
 
     @ModifyVariable(method = "angerNearbyBees", at = @At("STORE"), index = 4)
-    public List<PlayerEntity> angerNearbyBees$MobOrigins(List<PlayerEntity> list) {
+    public List<PlayerEntity> angerNearbyBees$CustomOrigins(List<PlayerEntity> list) {
         list.removeIf(CustomOriginsPowers.QUEEN_BEE::isActive);
         return list;
     }

@@ -3,6 +3,7 @@ package io.github.padlocks.customorigins.event;
 import java.util.Arrays;
 import java.util.List;
 
+import io.github.padlocks.customorigins.effect.EffectRegistry;
 import io.github.padlocks.customorigins.power.CustomOriginsPowers;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -54,7 +55,7 @@ public class EntityEventListeners {
                 playerList.forEach(p -> {
                     if (CustomOriginsPowers.UNDEAD.isActive(p)) {
                         boolean noticed = false;
-                        if (!noticed) {
+                        if (!noticed && !p.hasStatusEffect(EffectRegistry.CALMNESS)) {
                             if (entity.isInRange(p, 15d)) {
                                 entity.setAttacker(p);
                                 entity.setYaw(p.getYaw(10.0F));

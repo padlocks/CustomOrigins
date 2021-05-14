@@ -33,7 +33,11 @@
                 "duration": 30
             }
         },
-        "cooldown": 100
+        "cooldown": 100,
+        "hud_render": {
+            "sprite_location": "customorigins:textures/gui/ability_bars.png",
+            "bar_index": "6"
+        }
     },
     "undying_1": {
         "type": "origins:attribute",

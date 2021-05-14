@@ -8,6 +8,9 @@
   "option.customorigins.uniqueParticles": "Unique Particles",
   "option.tooltip.customorigins.uniqueParticles": "Toggles special particle effects if you have any.",
 
+  "option.customorigins.showPlayerOverlays": "Show Player Overlays",
+  "option.tooltip.customorigins.showPlayerOverlays": "Toggles overlays such as the armored wither effect rendered on players.",
+
   "origin.customorigins.honeybee.name": "Honeybee",
   "origin.customorigins.honeybee.description": "A flying insect that pollinates the world, spreading flowers and honey all around.",
 
@@ -29,8 +32,8 @@
   "power.customorigins.queen_bee.name": "Queen Bee",
   "power.customorigins.queen_bee.description": "When you collect honey, the bees won't try to attack you.",
 
-  "power.moborigins.flower_power.name": "Flower Power",
-  "power.moborigins.flower_power.description": "When near multiple flowers, you gain regeneration.",
+  "power.customorigins.flower_power.name": "Flower Power",
+  "power.customorigins.flower_power.description": "When near multiple flowers, you gain regeneration.",
 
   "origin.customorigins.lost_soul.name": "Lost Soul",
   "origin.customorigins.lost_soul.description": "A soul who fell out of their body and into the Nether. Wishing to reunite itself with its misplaced body, it returns to the overworld.",
@@ -55,6 +58,34 @@
 
   "power.customorigins.undead.name": "Undead",
   "power.customorigins.undead.description": "Surrounding creatures identify you as undead, resulting in animals and villagers running away from you and undead mobs passive toward you.",
+
+  "origin.customorigins.withered.name": "Withered",
+  "origin.customorigins.withered.description": "The Withered are those whose ancestors have paid the price for harnessing the chaotic power of the Wither. They can feel the decay within spread to anything they touch.",
+  
+  "power.customorigins.black_thumb.name": "Black Thumb",
+  "power.customorigins.black_thumb.description": "You spread decay to any overworld crops you plant, making them unable to grow.",
+  
+  "power.customorigins.scorched_structure.name": "Scorched Structure",
+  "power.customorigins.scorched_structure.description": "You have one extra level of Soul Speed at all times.",
+  
+  "power.customorigins.undead_resistance.name": "Undead Resistance",
+  "power.customorigins.undead_resistance.description": "When you are at half of your maximum health, you create a soul projection around yourself, making you immune to projectiles.",
+  
+  "power.customorigins.wither_immunity.name": "Infused Veins",
+  "power.customorigins.wither_immunity.description": "You are immune to the Wither effect.",
+  
+  "power.customorigins.wither_toxins.name": "Wither Toxins",
+  "power.customorigins.wither_toxins.description": "Your melee attacks inflict the wither effect for a short time.",
+  
+  "item.minecraft.potion.effect.calmness": "Potion of Calmness",
+  "item.minecraft.splash_potion.effect.calmness": "Splash Potion of Calmness",
+  "item.minecraft.lingering_potion.effect.calmness": "Lingering Potion of Calmness",
+  "item.minecraft.tipped_arrow.effect.calmness": "Arrow of Calmness",
+
+  "effect.customorigins.flight": "Flight",
+  "effect.customorigins.wither_resistance": "Wither Resistance",
+  "effect.customorigins.calmness": "Calmness",
+  "effect.customorigins.evanescence": "Evanescence",
 
   "enchantment.customorigins.headphones": "Headphones",
   "enchantment.customorigins.heat_protection": "Heat Protection",

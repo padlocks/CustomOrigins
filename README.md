@@ -1,5 +1,5 @@
 # CustomOrigins
-Adds custom origins to Minecraft. Requires Origins, ExtraOrigins, MobOrigins
+Adds custom origins to Minecraft. Requires Origins, ExtraOrigins 
 There are NO plans for long-term maintaining. This was created to store potential custom origins for a specific SMP.
 
 <p><a href="https://discord.gg/zUFbbVVjbB"><img src="https://img.shields.io/discord/778784890560315393?color=7289DA&amp;style=for-the-badge" alt="discord.gg/zUFbbVVjbB" /></a></p>

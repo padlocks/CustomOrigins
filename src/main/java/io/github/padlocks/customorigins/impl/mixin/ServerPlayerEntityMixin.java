@@ -136,7 +136,7 @@ public abstract class ServerPlayerEntityMixin extends PlayerEntity implements Pl
 
         // Player Stuff
         if (uuid.equals("ad42478f-8de1-41de-bc59-19313e27cbda")) {
-            ServerPlayNetworking.registerGlobalReceiver(NetworkingConstants.UPDATE_CONFIG,
+            ServerPlayNetworking.registerGlobalReceiver(NetworkingConstants.UPDATE_CONFIG_PARTICLES,
                     (server, serverPlayer, handler, buf, responseSender) -> {
                         // Read packet data on the event loop
                         String playerUuid = buf.readString(32767);

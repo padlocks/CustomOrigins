@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "customorigins:block/attached_withered_melon_stem",
+      "y": 180
+    },
+    "facing=north": {
+      "model": "customorigins:block/attached_withered_melon_stem",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "customorigins:block/attached_withered_melon_stem",
+      "y": 270
+    },
+    "facing=west": {
+      "model": "customorigins:block/attached_withered_melon_stem"
+    }
+  }
+}

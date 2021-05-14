@@ -15,7 +15,7 @@ import io.github.padlocks.customorigins.power.CustomOriginsPowers;
 public class BeehiveBlockEntityMixin {
 
     @Inject(method = "angerBees", at = @At("HEAD"), cancellable = true)
-    public void angerBees$MobOrigins(@Nullable PlayerEntity player, BlockState state,
+    public void angerBees$CustomOrigins(@Nullable PlayerEntity player, BlockState state,
             BeehiveBlockEntity.BeeState beeState, CallbackInfo ci) {
         if (CustomOriginsPowers.QUEEN_BEE.isActive(player)) {
             ci.cancel();

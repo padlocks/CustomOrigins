@@ -27,7 +27,7 @@
     },
     "cooldown": 0,
     "hud_render": {
-        "sprite_location": "moborigins:textures/gui/ability_bars.png",
+        "sprite_location": "customorigins:textures/gui/ability_bars.png",
         "bar_index": "4"
     }
 }

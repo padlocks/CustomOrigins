@@ -33,6 +33,11 @@
   "mixins": [
     "customorigins.mixins.json"
   ],
+  "custom": {
+    "cardinal-components": [
+      "customorigins:extra_health"
+    ]
+  },
   "depends": {
     "fabricloader": ">=0.11.1",
     "fabric": ">=0.29.4",

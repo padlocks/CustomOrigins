@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/crop",
+  "textures": {
+    "crop": "customorigins:block/withered_beetroots_stage3"
+  }
+}

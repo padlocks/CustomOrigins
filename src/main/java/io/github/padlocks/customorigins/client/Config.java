@@ -20,6 +20,7 @@ public class Config {
     private static boolean autoUpdate;
     private static boolean uniqueParticles;
     private static boolean displayGreetingScreen;
+    private static boolean showPlayerOverlays;
 
     public static void load() {
         // if customorigins.properties exist, load it
@@ -35,6 +36,7 @@ public class Config {
             setAutoUpdate(true);
             setUniqueParticles(true);
             setDisplayGreetingScreen(true);
+            setDisplayPlayerOverlays(true);
         }
 
         try {
@@ -44,6 +46,7 @@ public class Config {
             setAutoUpdate(true);
             setUniqueParticles(true);
             setDisplayGreetingScreen(true);
+            setDisplayPlayerOverlays(true);
         }
     }
 
@@ -65,7 +68,7 @@ public class Config {
             PacketByteBuf buf = PacketByteBufs.create();
             buf.writeString(uuid);
             buf.writeBoolean(uniqueParticles);
-            ClientPlayNetworking.send(NetworkingConstants.UPDATE_CONFIG, buf);
+            ClientPlayNetworking.send(NetworkingConstants.UPDATE_CONFIG_PARTICLES, buf);
         }
         
         return uniqueParticles;
@@ -86,7 +89,7 @@ public class Config {
             PacketByteBuf buf = PacketByteBufs.create();
             buf.writeString(uuid);
             buf.writeBoolean(uniqueParticles);
-            ClientPlayNetworking.send(NetworkingConstants.UPDATE_CONFIG, buf);
+            ClientPlayNetworking.send(NetworkingConstants.UPDATE_CONFIG_PARTICLES, buf);
         }
 
     }
@@ -99,6 +102,27 @@ public class Config {
         displayGreetingScreen = value;
         config.setProperty("display-greeting-screen", Boolean.toString(value));
         Config.save();
+    }
+
+    public static boolean isPlayerOverlaysEnabled() {
+        if (MinecraftClient.getInstance().player != null) {
+            PacketByteBuf buf = PacketByteBufs.create();
+            buf.writeBoolean(showPlayerOverlays);
+            ClientPlayNetworking.send(NetworkingConstants.UPDATE_CONFIG_PLAYER_OVERLAYS, buf);
+        }
+
+        return showPlayerOverlays;
+    }
+
+    public static void setDisplayPlayerOverlays(boolean value) {
+        showPlayerOverlays = value;
+        config.setProperty("show-player-overlays", Boolean.toString(value));
+        Config.save();
+        if (MinecraftClient.getInstance().player != null) {
+            PacketByteBuf buf = PacketByteBufs.create();
+            buf.writeBoolean(showPlayerOverlays);
+            ClientPlayNetworking.send(NetworkingConstants.UPDATE_CONFIG_PLAYER_OVERLAYS, buf);
+        }
     }
 
 }

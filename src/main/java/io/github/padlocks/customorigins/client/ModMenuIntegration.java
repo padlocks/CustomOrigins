@@ -46,6 +46,12 @@ public class ModMenuIntegration implements ModMenuApi {
                     .setDefaultValue(true)
                     .build());
 
+            general.addEntry(entryBuilder
+                   .startBooleanToggle(new TranslatableText("option.customorigins.showPlayerOverlays"),
+                   Config.isPlayerOverlaysEnabled())
+                   .setTooltip(new TranslatableText("option.tooltip.customorigins.showPlayerOverlays"))
+                   .setSaveConsumer(Config::setDisplayPlayerOverlays).setDefaultValue(true).build());
+
             // build and return the config screen
             return builder.build();
         };

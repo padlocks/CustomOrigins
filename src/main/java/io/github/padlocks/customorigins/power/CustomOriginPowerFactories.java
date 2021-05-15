@@ -51,7 +51,17 @@ public class CustomOriginPowerFactories {
                                 (SoundEvent) data.get("sound"));
                         power.setKey((Active.Key) data.get("key"));
                         return power;
-                    })).allowCondition();;
+                    })).allowCondition();
+    public static final PowerFactory<Power> FACTORY_HIVE_MIND_POWER = create(new PowerFactory<>(
+                    new Identifier(CustomOriginsMod.MOD_ID, "hive_mind"),
+                    new SerializableData().add("cooldown", SerializableDataType.INT)
+                                .add("hud_render", SerializableDataType.HUD_RENDER)
+                                .add("key", SerializableDataType.BACKWARDS_COMPATIBLE_KEY, new Active.Key()),
+                    data -> (type, player) -> {
+                            HiveMindPower power = new HiveMindPower(type, player, data.getInt("cooldown"), (HudRender) data.get("hud_render"));
+                            power.setKey((Active.Key) data.get("key"));
+                            return power;
+                    })).allowCondition();
 
     public static void register() {
         POWER_FACTORIES.keySet().forEach(

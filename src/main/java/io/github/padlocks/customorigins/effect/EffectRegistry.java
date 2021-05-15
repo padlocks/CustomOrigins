@@ -26,5 +26,10 @@ public class EffectRegistry {
         EVANESCENCE = Registry.register(Registry.STATUS_EFFECT, new Identifier(CustomOriginsMod.MOD_ID, "evanescence"),
                 new EvanescenceEffect(StatusEffectType.HARMFUL, 0));
     }
+    
+    public static EvanescenceEffect getEvanescenceEffect() {
+            return (EvanescenceEffect) Registry.STATUS_EFFECT.get(
+                            new Identifier(CustomOriginsMod.MOD_ID, "evanescence"));
+    }
 
 }

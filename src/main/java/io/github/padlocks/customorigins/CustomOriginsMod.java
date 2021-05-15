@@ -5,7 +5,6 @@ import org.apache.logging.log4j.Logger;
 
 import io.github.padlocks.customorigins.commands.*;
 import io.github.padlocks.customorigins.effect.EffectRegistry;
-import io.github.padlocks.customorigins.effect.EvanescenceEffect;
 import io.github.padlocks.customorigins.enchantment.*;
 import io.github.padlocks.customorigins.potion.ModPotionRegistry;
 import io.github.padlocks.customorigins.power.CustomOriginPowerFactories;

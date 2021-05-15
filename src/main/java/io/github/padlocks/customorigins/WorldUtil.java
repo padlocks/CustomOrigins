@@ -14,12 +14,14 @@ import net.minecraft.world.World;
 
 import java.util.Optional;
 
+import io.github.padlocks.customorigins.effect.EffectRegistry;
 import io.github.padlocks.customorigins.entity.AttackThingsThatAreNotBeesGoal;
 import io.github.padlocks.customorigins.entity.MobEntityTargetSelectorAccessor;
+import io.github.padlocks.customorigins.power.CustomOriginsPowers;
 
 public class WorldUtil {
     public static void spawnAngryBees(World world, Vec3d vec) {
-        /* Box targetBox = new Box(vec, vec).expand(CustomOriginsMod.BEE_SEARCH_RADIUS);
+        Box targetBox = new Box(vec, vec).expand(CustomOriginsMod.BEE_SEARCH_RADIUS);
 
         Optional<LivingEntity> foundTarget = world
                 .getEntitiesByClass(LivingEntity.class, targetBox, WorldUtil::isValidBeeTarget).stream()
@@ -37,17 +39,24 @@ public class WorldUtil {
             bee.setPos(vec.x, vec.y, vec.z);
             bee.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, maxTime, 1, false, false));
             bee.addStatusEffect(
-                    new StatusEffectInstance(RegistryObjects.getEvanescenceEffect(), ticksToExist, 0, false, false));
+                    new StatusEffectInstance(EffectRegistry.getEvanescenceEffect(), ticksToExist, 0, false, false));
             foundTarget.ifPresent(target -> { // make bee angry at target
-                bee.setAngryAt(target.getUuid());
-                bee.setAngerTime(1200);
-                ((MobEntityTargetSelectorAccessor) bee).getTargetSelector().add(0,
-                        new AttackThingsThatAreNotBeesGoal(bee));
+                if (!CustomOriginsPowers.HIVE_MIND.isActive(target)) {
+                    bee.setAngryAt(target.getUuid());
+                    bee.setAngerTime(1200);
+                    ((MobEntityTargetSelectorAccessor) bee).getTargetSelector().add(0,
+                            new AttackThingsThatAreNotBeesGoal(bee));
+                }
+                else {
+                    bee.setAngryAt(null);
+                    bee.setAngerTime(0);
+                }
             });
-        } */
+        }
     }
 
     public static boolean isValidBeeTarget(LivingEntity ent) {
-        return (ent.getType() != EntityType.BEE) && (!ent.isInvulnerable());
+        return (ent.getType() != EntityType.BEE) && (!ent.isInvulnerable()) && (!CustomOriginsPowers.HIVE_MIND
+                .isActive(ent));
     }
 }

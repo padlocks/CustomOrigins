@@ -19,4 +19,5 @@ public class CustomOriginsPowers {
         public static final PowerType<Power> UNENCHANTED_SOUL_SPEED = new PowerTypeReference(new Identifier("customorigins", "unenchanted_soul_speed"));
         public static final PowerType<Power> LIGHT_UP_BLOCK = new PowerTypeReference(new Identifier("customorigins", "light_up_block"));
         public static final PowerType<Power> BLACK_THUMB = new PowerTypeReference(new Identifier("customorigins", "black_thumb"));
+        public static final PowerType<Power> HIVE_MIND = new PowerTypeReference(new Identifier("customorigins", "hive_mind"));
 }

@@ -1,0 +1,12 @@
+{
+    "type": "customorigins:hive_mind",
+    "key": {
+        "key": "key.origins.secondary_active",
+        "continuous": false
+    },
+    "cooldown": 240,
+    "hud_render": {
+        "sprite_location": "customorigins:textures/gui/ability_bars.png",
+        "bar_index": "4"
+    }
+}

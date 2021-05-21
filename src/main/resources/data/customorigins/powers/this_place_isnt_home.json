@@ -7,7 +7,7 @@
         "duration_per_stack": 30,
         "effect": {
             "effect": "slowness",
-            "amplifier": 2,
+            "amplifier": 3,
             "is_ambient": true,
             "show_particles": false,
             "show_icon": false

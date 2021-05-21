@@ -20,6 +20,12 @@
                 "attribute": "generic.movement_speed",
                 "value": 0.075,
                 "operation": "addition"
+            },
+            {
+                "name": "less attack",
+                "attribute": "generic.attack_damage",
+                "value": -3,
+                "operation": "addition"
             }
         ]
     },
@@ -51,12 +57,12 @@
             {
                 "type": "origins:health",
                 "comparison": "<",
-                "compare_to": 4
+                "compare_to": 8
             },
             {
                 "type": "origins:health",
                 "comparison": ">",
-                "compare_to": 2
+                "compare_to": 4
             }
         ]
     },
@@ -72,7 +78,7 @@
             {
                 "type": "origins:health",
                 "comparison": "<",
-                "compare_to": 2
+                "compare_to": 4
             }
         ]
     }

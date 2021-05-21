@@ -8,7 +8,7 @@
             "duration": 100
         }
     },
-    "cooldown": 120,
+    "cooldown": 180,
     "hud_render": {
         "should_render": true,
         "sprite_location": "customorigins:textures/gui/tmo_resource_bar.png",

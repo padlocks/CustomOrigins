@@ -6,8 +6,7 @@ import io.github.apace100.origins.power.PowerTypeReference;
 import net.minecraft.util.Identifier;
 
 public class CustomOriginsPowers {
-        public static final PowerType<Power> BUMBLE = new PowerTypeReference(
-                new Identifier("customorigins", "bumble"));
+        public static final PowerType<Power> BUMBLE = new PowerTypeReference(new Identifier("customorigins", "bumble"));
         public static final PowerType<Power> QUEEN_BEE = new PowerTypeReference(new Identifier("customorigins", "queen_bee"));
         public static final PowerType<Power> SLIPPERY = new PowerTypeReference(new Identifier("customorigins", "slippery"));
         public static final PowerType<Power> HAUNTED = new PowerTypeReference(new Identifier("customorigins", "haunted"));
@@ -20,4 +19,5 @@ public class CustomOriginsPowers {
         public static final PowerType<Power> LIGHT_UP_BLOCK = new PowerTypeReference(new Identifier("customorigins", "light_up_block"));
         public static final PowerType<Power> BLACK_THUMB = new PowerTypeReference(new Identifier("customorigins", "black_thumb"));
         public static final PowerType<Power> HIVE_MIND = new PowerTypeReference(new Identifier("customorigins", "hive_mind"));
+        public static final PowerType<Power> AERIAL_AFFINITY = new PowerTypeReference(new Identifier("customorigins", "aerial_affinity"));
 }

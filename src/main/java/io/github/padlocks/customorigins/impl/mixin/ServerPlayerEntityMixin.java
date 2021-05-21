@@ -148,25 +148,25 @@ public abstract class ServerPlayerEntityMixin extends PlayerEntity implements Pl
                         server.execute(() -> {
                             if (uuid.equals(playerUuid)) {
                                 enableParticles = !clientParticles;
+                                if (!world.isClient) {
+                                    /* if (!givenEffects) {
+                                        player.addExperienceLevels(2);
+                                        givenEffects = true;
+                                    } */
+                                    
+                                    if (enableParticles && !player.isInvisible()) {
+                                        ((ServerWorld) player.world).spawnParticles((new DustParticleEffect(
+                                            1.0f, 0.0f, 0.0f, 0.6f)),
+                                            player.getX(),
+                                            player.getRandomBodyY(), player.getZ(), 1, 
+                                                ((Math.random() * (0.2d - 0.1d)) + 0.1d), 0.0D,
+                                                ((Math.random() * (0.2d - 0.1d)) + 0.1d), 0.01f);
+                                    }
+                                }
                             }
                         });
-                    });
-            }
-                
-            if (!world.isClient) {
-                /* if (!givenEffects) {
-                    player.addExperienceLevels(2);
-                    givenEffects = true;
-                } */
-                if (enableParticles) {
-                    ((ServerWorld) player.world).spawnParticles((new DustParticleEffect(
-                        1.0f, 0.0f, 0.0f, 0.6f)),
-                        player.getX(),
-                        player.getRandomBodyY(), player.getZ(), 1, 
-                            ((Math.random() * (0.2d - 0.1d)) + 0.1d), 0.0D,
-                            ((Math.random() * (0.2d - 0.1d)) + 0.1d), 0.01f);
-                }
-            }
+            });
+        }
 
         // BUMBLE
         if (CustomOriginsPowers.BUMBLE.isActive(player)) {

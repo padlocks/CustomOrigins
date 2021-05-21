@@ -1,3 +1,5 @@
 {
-    "type": "origins:simple"
+    "type": "origins:simple",
+    "name": "Slippery",
+    "description": "Your slick skin makes other blocks feel slippery."
 }

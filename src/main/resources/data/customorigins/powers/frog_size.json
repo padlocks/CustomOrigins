@@ -1,6 +1,20 @@
 {
-    "type": "extraorigins:modify_size",
+    "type": "origins:multiple",
+    "modify_size": {
+        "type": "extraorigins:modify_size",
+        "scale": 0.35
+    },
+    "attribute_modifiers": {
+        "type": "origins:attribute",
+        "modifiers": [
+            {
+                "name": "Origin modifier",
+                "attribute": "generic.max_health",
+                "value": -8,
+                "operation": "addition"
+            }
+        ]
+    },
     "name": "Frog Size",
-    "description": "You are 1/4 the size of a normal human being. ",
-    "scale": 0.35
+    "description": "You are 1/4 the size of a normal human being."
 }

@@ -17,6 +17,7 @@
         "customorigins:jump",
         "customorigins:frog_size",
         "customorigins:dehydration",
-        "customorigins:pyrophobic"
+        "customorigins:pyrophobic",
+        "customorigins:no_aeternium"
     ]
 }

@@ -1,0 +1,32 @@
+{
+    "type": "origins:restrict_armor",
+    "hidden": true,
+    "head": {
+        "type": "origins:ingredient",
+        "inverted": false,
+        "ingredient": {
+            "item": "betterend:aeternium_helmet"
+        }
+    },
+    "chest": {
+        "type": "origins:ingredient",
+        "inverted": false,
+        "ingredient": {
+            "item": "betterend:aeternium_chestplate"
+        }
+    },
+    "legs": {
+        "type": "origins:ingredient",
+        "inverted": false,
+        "ingredient": {
+            "item": "betterend:aeternium_leggings"
+        }
+    },
+    "feet": {
+        "type": "origins:ingredient",
+        "inverted": false,
+        "ingredient": {
+            "item": "betterend:aeternium_boots"
+        }
+    }
+}

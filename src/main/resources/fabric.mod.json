@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "customorigins",
-  "version": "${version}",
+  "version": "1.4.0",
   "name": "Custom Ovis Origins",
   "description": "Adds custom origins to the game.",
   "authors": [

@@ -1,0 +1,12 @@
+{
+  "type": "origins:attribute",
+  "modifier": {
+    "attribute": "minecraft:generic.max_health",
+    "value": -6,
+    "operation": "addition"
+  },
+  "hidden": false,
+  "name": "Fragile",
+  "description": "You are smaller and have less health.",
+  "tick_rate": 2
+}

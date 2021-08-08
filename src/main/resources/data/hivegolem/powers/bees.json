@@ -1,0 +1,1392 @@
+{
+	"type": "origins:multiple",
+	"count": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 24,
+		"start_value": 7,
+		"hud_render": {
+			"should_render": true,
+			"sprite_location": "hive:textures/gui/hive_bars_01.png",
+			"bar_index": 0
+		}
+	},
+	"honey": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 2000,
+		"start_value": 500,
+		"hud_render": {
+			"should_render": true,
+			"sprite_location": "hive:textures/gui/hive_bars_01.png",
+			"bar_index": 2
+		}
+	},
+	"armor": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 22,
+		"start_value": 4,
+		"hud_render": {
+			"should_render": true,
+			"sprite_location": "hive:textures/gui/hive_bars_01.png",
+			"bar_index": 1
+		}
+	},
+	"angry_target": {
+		"type": "origins:target_action_on_hit",
+		"entity_action": {
+			"type": "origins:execute_command",
+			"command": "function hivegolem:angrybees"
+		},
+		"cooldown": 1,
+		"hud_render": {
+			"should_render": false
+		},
+		"target_condition": {
+			"type": "origins:command",
+			"command": "execute if entity @s[type=!bee,team=!Ariii]",
+			"comparison": "==",
+			"compare_to": 0,
+			"inverted": true
+		}
+	},
+	"angry_attacker": {
+		"type": "origins:attacker_action_when_hit",
+		"entity_action": {
+			"type": "origins:delay",
+			"ticks": 1,
+			"action": {
+				"type": "origins:execute_command",
+				"command": "function hivegolem:angrybees"
+			}
+		},
+		"cooldown": 1,
+		"hud_render": {
+			"should_render": false
+		},
+		"target_condition": {
+			"type": "origins:command",
+			"command": "execute if entity @s[type=!bee,team=!Ariii]",
+			"comparison": "==",
+			"compare_to": 0,
+			"inverted": true
+		}
+	},
+	"summon_attacker": {
+		"type": "origins:self_action_when_hit",
+		"entity_action": {
+			"type": "origins:chance",
+			"action": {
+				"type": "origins:and",
+				"actions": [{
+						"type": "origins:execute_command",
+						"command": "function hivegolem:summonbee"
+					},
+					{
+						"type": "origins:execute_command",
+						"command": "playsound minecraft:block.beehive.exit player @a[distance=..12] ~ ~ ~"
+					},
+					{
+						"type": "origins:change_resource",
+						"resource": "*:*_count",
+						"change": -1
+					}
+				]
+			},
+			"chance": 0.25
+		},
+		"cooldown": 1,
+		"hud_render": {
+			"should_render": false
+		},
+		"damage_condition": {
+			"type": "origins:attacker"
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [{
+				"type": "origins:resource",
+				"resource": "*:*_count",
+				"comparison": "==",
+				"compare_to": 0,
+				"inverted": true
+			}]
+		}
+	},
+	"team": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [{
+				"type": "origins:execute_command",
+				"command": "execute at @s as @e[distance=..64,type=minecraft:bee] run team join Ariii @s"
+			}]
+		},
+		"interval": 20
+	},
+	"summon_bee": {
+		"type": "origins:active_self",
+		"hud_render": {
+			"should_render": false
+		},
+		"cooldown": 8,
+		"key": {
+			"key": "key.origins.primary_active",
+			"continuous": true
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [{
+					"type": "origins:resource",
+					"resource": "*:*_count",
+					"comparison": "==",
+					"compare_to": 0,
+					"inverted": true
+				},
+				{
+					"type": "origins:sneaking",
+					"inverted": true
+				}
+			]
+		},
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [{
+					"type": "origins:execute_command",
+					"command": "function hivegolem:summonbee"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "playsound minecraft:block.beehive.exit player @a[distance=..12] ~ ~ ~"
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "*:*_count",
+					"change": -1
+				}
+			]
+		}
+	},
+	"teleport_bee": {
+		"type": "origins:active_self",
+		"hud_render": {
+			"should_render": true,
+			"sprite_location": "hive:textures/gui/hive_bars_01.png",
+			"bar_index": 4
+		},
+		"cooldown": 300,
+		"condition": {
+			"type": "origins:and",
+			"conditions": [{
+					"type": "origins:resource",
+					"resource": "*:*_count",
+					"comparison": "==",
+					"compare_to": 14,
+					"inverted": true
+				},
+				{
+					"type": "origins:sneaking"
+				}
+			]
+		},
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:resource",
+						"resource": "*:*_count",
+						"comparison": "==",
+						"compare_to": 0
+					},
+					"if_action": {
+						"type": "origins:and",
+						"actions": [{
+							"type": "origins:execute_command",
+							"command": "function hivegolem:teleportation/teleportation_prior0"
+						}]
+					}
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:resource",
+						"resource": "*:*_count",
+						"comparison": "==",
+						"compare_to": 1
+					},
+					"if_action": {
+						"type": "origins:and",
+						"actions": [{
+							"type": "origins:execute_command",
+							"command": "function hivegolem:teleportation/teleportation_prior1"
+						}]
+					}
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:resource",
+						"resource": "*:*_count",
+						"comparison": "==",
+						"compare_to": 2
+					},
+					"if_action": {
+						"type": "origins:and",
+						"actions": [{
+							"type": "origins:execute_command",
+							"command": "function hivegolem:teleportation/teleportation_prior2"
+						}]
+					}
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:resource",
+						"resource": "*:*_count",
+						"comparison": "==",
+						"compare_to": 3
+					},
+					"if_action": {
+						"type": "origins:and",
+						"actions": [{
+							"type": "origins:execute_command",
+							"command": "function hivegolem:teleportation/teleportation_prior3"
+						}]
+					}
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:resource",
+						"resource": "*:*_count",
+						"comparison": "==",
+						"compare_to": 4
+					},
+					"if_action": {
+						"type": "origins:and",
+						"actions": [{
+							"type": "origins:execute_command",
+							"command": "function hivegolem:teleportation/teleportation_prior4"
+						}]
+					}
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:resource",
+						"resource": "*:*_count",
+						"comparison": "==",
+						"compare_to": 5
+					},
+					"if_action": {
+						"type": "origins:and",
+						"actions": [{
+							"type": "origins:execute_command",
+							"command": "function hivegolem:teleportation/teleportation_prior5"
+						}]
+					}
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:resource",
+						"resource": "*:*_count",
+						"comparison": "==",
+						"compare_to": 6
+					},
+					"if_action": {
+						"type": "origins:and",
+						"actions": [{
+							"type": "origins:execute_command",
+							"command": "function hivegolem:teleportation/teleportation_prior6"
+						}]
+					}
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:resource",
+						"resource": "*:*_count",
+						"comparison": "==",
+						"compare_to": 7
+					},
+					"if_action": {
+						"type": "origins:and",
+						"actions": [{
+							"type": "origins:execute_command",
+							"command": "function hivegolem:teleportation/teleportation_prior7"
+						}]
+					}
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:resource",
+						"resource": "*:*_count",
+						"comparison": "==",
+						"compare_to": 8
+					},
+					"if_action": {
+						"type": "origins:and",
+						"actions": [{
+							"type": "origins:execute_command",
+							"command": "function hivegolem:teleportation/teleportation_prior8"
+						}]
+					}
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:resource",
+						"resource": "*:*_count",
+						"comparison": "==",
+						"compare_to": 9
+					},
+					"if_action": {
+						"type": "origins:and",
+						"actions": [{
+							"type": "origins:execute_command",
+							"command": "function hivegolem:teleportation/teleportation_prior9"
+						}]
+					}
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:resource",
+						"resource": "*:*_count",
+						"comparison": "==",
+						"compare_to": 10
+					},
+					"if_action": {
+						"type": "origins:and",
+						"actions": [{
+							"type": "origins:execute_command",
+							"command": "function hivegolem:teleportation/teleportation_prior10"
+						}]
+					}
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:resource",
+						"resource": "*:*_count",
+						"comparison": "==",
+						"compare_to": 11
+					},
+					"if_action": {
+						"type": "origins:and",
+						"actions": [{
+							"type": "origins:execute_command",
+							"command": "function hivegolem:teleportation/teleportation_prior11"
+						}]
+					}
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:resource",
+						"resource": "*:*_count",
+						"comparison": "==",
+						"compare_to": 12
+					},
+					"if_action": {
+						"type": "origins:and",
+						"actions": [{
+							"type": "origins:execute_command",
+							"command": "function hivegolem:teleportation/teleportation_prior12"
+						}]
+					}
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:resource",
+						"resource": "*:*_count",
+						"comparison": "==",
+						"compare_to": 13
+					},
+					"if_action": {
+						"type": "origins:and",
+						"actions": [{
+							"type": "origins:execute_command",
+							"command": "function hivegolem:teleportation/teleportation_prior13"
+						}]
+					}
+				}
+			]
+		}
+	},
+	"death": {
+		"type": "origins:action_over_time",
+		"interval": 1,
+		"condition": {
+			"type": "origins:command",
+			"command": "execute if entity @s[type=bee]",
+			"comparison": "==",
+			"compare_to": 0,
+			"inverted": true
+		},
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [{
+					"type": "origins:execute_command",
+					"command": "tp ~ 19999999 ~"
+				},
+				{
+					"type": "origins:delay",
+					"ticks": 5,
+					"action": {
+						"type": "origins:damage",
+						"amount": 2147483647,
+						"source": {
+							"name": "generic",
+							"bypasses_armor": true,
+							"unblockable": true
+						}
+					}
+				}
+			]
+		}
+	},
+	"get_in": {
+		"type": "origins:active_self",
+		"hud_render": {
+			"should_render": false
+		},
+		"cooldown": 2,
+		"key": {
+			"key": "key.use",
+			"continuous": true
+		},
+
+		"entity_action": {
+			"type": "origins:execute_command",
+			"command": "execute anchored eyes run function hivegolem:bee_action"
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [{
+					"type": "origins:resource",
+					"resource": "*:*_count",
+					"comparison": "==",
+					"compare_to": 14,
+					"inverted": true
+				},
+				{
+					"type": "origins:command",
+					"command": "execute if entity @s[nbt=!{SelectedItem:{}}]",
+					"comparison": "==",
+					"compare_to": 0,
+					"inverted": true
+				},
+				{
+					"type": "origins:command",
+					"command": "execute if entity @s[nbt=!{Inventory:[{Slot:-106b}]}]",
+					"comparison": "==",
+					"compare_to": 0,
+					"inverted": true
+				}
+			]
+		}
+	},
+	"fill_bottle": {
+		"type": "origins:active_self",
+		"hud_render": {
+			"should_render": false
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [{
+					"type": "origins:equipped_item",
+					"equipment_slot": "MAINHAND",
+					"item_condition": {
+						"type": "origins:ingredient",
+						"ingredient": {
+							"item": "minecraft:glass_bottle"
+						}
+					}
+				},
+				{
+					"type": "origins:resource",
+					"resource": "*:*_honey",
+					"comparison": ">=",
+					"compare_to": 100
+				}
+			]
+		},
+		"cooldown": 5,
+		"key": {
+			"key": "key.origins.secondary_active",
+			"continuous": true
+		},
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [{
+					"type": "origins:equipped_item_action",
+					"equipment_slot": "MAINHAND",
+					"action": {
+						"type": "origins:consume",
+						"amount": 1
+					}
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "give @s minecraft:honey_bottle"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "playsound minecraft:block.beehive.drip player @s"
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "*:*_honey",
+					"change": -100
+				}
+
+			]
+		}
+	},
+	"prevent_food": {
+		"type": "origins:prevent_item_use",
+		"item_condition": {
+			"type": "origins:and",
+			"conditions": [{
+					"type": "origins:ingredient",
+					"ingredient": {
+						"item": "minecraft:honey_bottle"
+					},
+					"inverted": true
+				},
+				{
+					"type": "origins:food"
+				}
+			]
+		}
+	},
+	"honey_consume": {
+		"type": "origins:modify_food",
+		"item_condition": {
+			"type": "origins:ingredient",
+			"ingredient": {
+				"item": "minecraft:honey_bottle"
+			}
+		},
+		"food_modifier": {
+			"operation": "ADDITION",
+			"value": -6
+		},
+		"saturation_modifier": {
+			"operation": "ADDITION",
+			"value": -1.2
+		},
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "*:*_honey",
+			"change": 100
+		}
+	},
+	"feed": {
+		"type": "origins:active_self",
+		"hud_render": {
+			"should_render": false
+		},
+		"cooldown": 10,
+		"key": {
+			"key": "key.origins.secondary_active",
+			"continuous": true
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [{
+					"type": "origins:equipped_item",
+					"equipment_slot": "MAINHAND",
+					"item_condition": {
+						"type": "origins:ingredient",
+						"ingredient": {
+							"item": "minecraft:glass_bottle"
+						}
+					},
+					"inverted": true
+				},
+				{
+					"type": "origins:resource",
+					"resource": "*:*_honey",
+					"comparison": ">=",
+					"compare_to": 50
+				},
+				{
+					"type": "origins:food_level",
+					"comparison": "==",
+					"compare_to": 20,
+					"inverted": true
+				}
+			]
+		},
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [{
+
+					"type": "origins:change_resource",
+					"resource": "*:*_honey",
+					"change": -50
+				},
+				{
+					"type": "origins:feed",
+					"food": 3,
+					"saturation": 1
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "playsound minecraft:item.honey_bottle.drink player @a[distance=..8]"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "effect clear @s minecraft:poison"
+				}
+			]
+		}
+	},
+	"armor_decrease": {
+		"type": "origins:modify_damage_taken",
+		"modifier": {
+			"operation": "MULTIPLY_BASE",
+			"value": -0.6
+		},
+		"condition": {
+			"type": "origins:resource",
+			"resource": "*:*_armor",
+			"comparison": "==",
+			"compare_to": 0,
+			"inverted": true
+		},
+		"damage_condition": {
+			"type": "origins:and",
+			"conditions": [{
+					"type": "origins:or",
+					"conditions": [{
+							"type": "origins:name",
+							"name": "inWall"
+						},
+						{
+							"type": "origins:name",
+							"name": "cramming"
+						},
+						{
+							"type": "origins:name",
+							"name": "drown"
+						},
+						{
+							"type": "origins:name",
+							"name": "fall"
+						},
+						{
+							"type": "origins:name",
+							"name": "flyIntoWall"
+						},
+						{
+							"type": "origins:name",
+							"name": "outOfWorld"
+						},
+						{
+							"type": "origins:name",
+							"name": "starve"
+						},
+						{
+							"type": "origins:name",
+							"name": "outOfWorld"
+						},
+						{
+							"type": "origins:name",
+							"name": "hurt_by_water"
+						}
+
+					],
+					"inverted": true
+				},
+				{
+					"type": "origins:amount",
+					"comparison": "==",
+					"compare_to": 0,
+					"inverted": true
+				}
+			]
+		},
+		"self_action": {
+			"type": "origins:and",
+			"actions": [{
+					"type": "origins:execute_command",
+					"command": "playsound minecraft:block.beehive.shear player @a[distance=..8]"
+				},
+				{
+
+					"type": "origins:change_resource",
+					"resource": "*:*_armor",
+					"change": -1
+				}
+			]
+		}
+	},
+	"armor_refill": {
+		"type": "origins:active_self",
+		"hud_render": {
+			"should_render": false
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [{
+					"type": "origins:equipped_item",
+					"equipment_slot": "MAINHAND",
+					"item_condition": {
+						"type": "origins:ingredient",
+						"ingredient": {
+							"item": "minecraft:honeycomb"
+						}
+					}
+				},
+				{
+					"type": "origins:resource",
+					"resource": "*:*_armor",
+					"comparison": "<",
+					"compare_to": 18
+				},
+				{
+					"type": "origins:sneaking"
+				}
+			]
+		},
+		"cooldown": 5,
+		"key": {
+			"key": "key.origins.ternary_active",
+			"continuous": true
+		},
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [{
+					"type": "origins:equipped_item_action",
+					"equipment_slot": "MAINHAND",
+					"action": {
+						"type": "origins:consume",
+						"amount": 1
+					}
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "playsound minecraft:block.honey_block.hit player @s"
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "*:*_armor",
+					"change": 1
+				}
+
+			]
+		}
+	},
+	"honeycomb_produce": {
+		"type": "origins:active_self",
+		"hud_render": {
+			"should_render": false
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [{
+					"type": "origins:resource",
+					"resource": "*:*_honey",
+					"comparison": ">=",
+					"compare_to": 200
+				},
+
+				{
+					"type": "origins:sneaking",
+					"inverted": true
+				}
+			]
+		},
+		"cooldown": 10,
+		"key": {
+			"key": "key.origins.ternary_active",
+			"continuous": true
+		},
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [{
+					"type": "origins:execute_command",
+					"command": "playsound minecraft:block.honey_block.hit player @s"
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "*:*_honey",
+					"change": -200
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "give @s minecraft:honeycomb"
+				}
+			]
+		}
+	},
+	"tank": {
+		"type": "origins:attribute",
+		"modifiers": [{
+				"attribute": "minecraft:generic.max_health",
+				"value": 20,
+				"operation": "ADDITION"
+			},
+			{
+				"attribute": "minecraft:generic.movement_speed",
+				"value": 1,
+				"operation": "MULTIPLY_BASE"
+			}
+		]
+	},
+	"no_armor": {
+		"type": "origins:restrict_armor",
+		"head": {
+			"type": "origins:armor_value",
+			"comparison": "==",
+			"compare_to": 0,
+			"inverted": true
+		},
+		"chest": {
+			"type": "origins:armor_value",
+			"comparison": "==",
+			"compare_to": 0,
+			"inverted": true
+		},
+		"legs": {
+			"type": "origins:armor_value",
+			"comparison": "==",
+			"compare_to": 0,
+			"inverted": true
+		},
+		"feet": {
+			"type": "origins:armor_value",
+			"comparison": "==",
+			"compare_to": 0,
+			"inverted": true
+		}
+	},
+	"no_armor_two": {
+		"type": "origins:prevent_item_use",
+		"item_condition": {
+			"type": "origins:armor_value",
+			"comparison": "==",
+			"compare_to": 0,
+			"inverted": true
+		}
+	},
+	"water_damage": {
+		"type": "origins:damage_over_time",
+		"interval": 20,
+		"onset_delay": 1,
+		"damage": 2,
+		"damage_easy": 1,
+		"damage_source": {
+			"name": "hurt_by_water",
+			"unblockable": true,
+			"bypasses_armor": true
+		},
+		"protection_enchantment": "origins:water_protection",
+		"protection_effectiveness": 1.0,
+		"condition": {
+			"type": "origins:or",
+			"conditions": [{
+				"type": "origins:fluid_height",
+				"fluid": "minecraft:water",
+				"comparison": ">",
+				"compare_to": 0.0
+			}]
+		}
+	},
+	"breed": {
+		"type": "origins:active_self",
+		"hud_render": {
+			"should_render": true,
+			"sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+			"bar_index": 4
+
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [{
+					"type": "origins:equipped_item",
+					"equipment_slot": "MAINHAND",
+					"item_condition": {
+						"type": "origins:ingredient",
+						"ingredient": {
+							"tag": "minecraft:flowers"
+						}
+					}
+				},
+				{
+					"type": "origins:resource",
+					"resource": "*:*_count",
+					"comparison": "<",
+					"compare_to": 14
+				}
+			]
+		},
+		"cooldown": 400,
+		"key": {
+			"key": "key.origins.quaternary_active"
+		},
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [{
+					"type": "origins:equipped_item_action",
+					"equipment_slot": "MAINHAND",
+					"action": {
+						"type": "origins:consume",
+						"amount": 1
+					}
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "playsound minecraft:entity.bee.pollinate player @s"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "/particle minecraft:heart ~ ~1 ~ 0.3 0.5 0.3 0 5 force"
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "*:*_count",
+					"change": 1
+				}
+			]
+		}
+	},
+	"fly_toggle": {
+		"type": "origins:toggle",
+		"active_by_default": false,
+		"key": {
+			"key": "key.origins.quinary_active"
+		}
+	},
+	"hover": {
+		"type": "origins:action_over_time",
+		"condition": {
+			"type": "origins:and",
+			"conditions": [{
+					"type": "origins:resource",
+					"resource": "*:*_count",
+					"comparison": "==",
+					"compare_to": 14
+				},
+				{
+					"type": "origins:power_active",
+					"power": "*:*_fly_toggle"
+				},
+				{
+					"type": "origins:resource",
+					"resource": "*:*_honey",
+					"comparison": "==",
+					"compare_to": 0,
+					"inverted": true
+				},
+				{
+					"type": "origins:sneaking",
+					"inverted": true
+				},
+				{
+					"type": "origins:resource",
+					"resource": "*:*_flyup_resource",
+					"comparison": "==",
+					"compare_to": 0
+				}
+			]
+		},
+		"interval": 1,
+		"entity_action": {
+			"type": "origins:apply_effect",
+			"effects": [{
+				"effect": "minecraft:levitation",
+				"duration": 2,
+				"amplifier": -1,
+				"show_particles": false,
+				"show_icon": false
+			}]
+		}
+	},
+	"particles": {
+		"type": "origins:action_over_time",
+		"condition": {
+			"type": "origins:and",
+			"conditions": [{
+					"type": "origins:resource",
+					"resource": "*:*_count",
+					"comparison": "==",
+					"compare_to": 14
+				},
+				{
+					"type": "origins:power_active",
+					"power": "*:*_fly_toggle"
+				},
+				{
+					"type": "origins:resource",
+					"resource": "*:*_honey",
+					"comparison": "==",
+					"compare_to": 0,
+					"inverted": true
+				}
+			]
+		},
+		"interval": 1,
+		"entity_action": {
+			"type": "origins:execute_command",
+			"command": "playsound minecraft:entity.bee.loop neutral @a[distance=..12]"
+		}
+	},
+	"slowfall": {
+		"type": "origins:action_over_time",
+		"condition": {
+			"type": "origins:and",
+			"conditions": [{
+					"type": "origins:resource",
+					"resource": "*:*_count",
+					"comparison": "==",
+					"compare_to": 14
+				},
+				{
+					"type": "origins:power_active",
+					"power": "*:*_fly_toggle"
+				},
+				{
+					"type": "origins:resource",
+					"resource": "*:*_honey",
+					"comparison": "==",
+					"compare_to": 0,
+					"inverted": true
+				},
+				{
+					"type": "origins:sneaking"
+				}
+			]
+		},
+		"interval": 1,
+		"entity_action": {
+			"type": "origins:apply_effect",
+			"effects": [{
+				"effect": "minecraft:slow_falling",
+				"duration": 2,
+				"amplifier": 0,
+				"show_particles": false,
+				"show_icon": false
+			}]
+		}
+	},
+	"flyup_resource": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 5,
+		"hud_render": {
+			"should_render": false
+		}
+	},
+	"flyup_resource_increase": {
+		"condition": {
+			"type": "origins:and",
+			"conditions": [{
+					"type": "origins:resource",
+					"resource": "*:*_count",
+					"comparison": "==",
+					"compare_to": 14
+				},
+				{
+					"type": "origins:power_active",
+					"power": "*:*_fly_toggle"
+				},
+				{
+					"type": "origins:resource",
+					"resource": "*:*_honey",
+					"comparison": "==",
+					"compare_to": 0,
+					"inverted": true
+				},
+				{
+					"type": "origins:sneaking",
+					"inverted": true
+				},
+				{
+					"type": "origins:resource",
+					"resource": "*:*_flyup_resource",
+					"comparison": "==",
+					"compare_to": 3,
+					"inverted": true
+				}
+			]
+		},
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "*:*_flyup_resource",
+			"change": 3
+		},
+		"type": "origins:active_self",
+		"hud_render": {
+			"should_render": false
+		},
+		"key": {
+			"key": "key.jump",
+			"continuous": true
+		},
+		"cooldown": 1
+	},
+	"fly_effect": {
+		"type": "origins:action_over_time",
+		"interval": 1,
+		"condition": {
+			"type": "origins:resource",
+			"resource": "*:*_flyup_resource",
+			"comparison": "==",
+			"compare_to": 0,
+			"inverted": true
+		},
+		"entity_action": {
+			"type": "origins:apply_effect",
+			"effects": [{
+				"effect": "minecraft:levitation",
+				"duration": 2,
+				"amplifier": 1,
+				"show_particles": false,
+				"show_icon": false
+			}]
+		}
+	},
+	"fly_decrease": {
+		"type": "origins:action_over_time",
+		"interval": 1,
+		"condition": {
+			"type": "origins:resource",
+			"resource": "*:*_flyup_resource",
+			"comparison": "==",
+			"compare_to": 0,
+			"inverted": true
+		},
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "*:*_flyup_resource",
+			"change": -1
+		}
+	},
+	"fall_damage_resource": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 1,
+		"hud_render": {
+			"should_render": false
+		}
+	},
+	"fall_damage": {
+		"type": "origins:action_over_time",
+		"interval": 1,
+		"condition": {
+			"type": "origins:and",
+			"conditions": [{
+					"type": "origins:resource",
+					"resource": "*:*_fall_damage_resource",
+					"comparison": "==",
+					"compare_to": 1
+				},
+				{
+					"type": "origins:or",
+					"conditions": [{
+							"type": "origins:power_active",
+							"power": "*:*_fly_toggle",
+							"inverted": true
+						},
+						{
+							"type": "origins:resource",
+							"resource": "*:*_count",
+							"comparison": "==",
+							"compare_to": 14,
+							"inverted": true
+						},
+						{
+							"type": "origins:resource",
+							"resource": "*:*_honey",
+							"comparison": "==",
+							"compare_to": 0
+						}
+					]
+				}
+			]
+		},
+		"entity_action": {
+			"type": "origins:apply_effect",
+			"effects": [{
+				"effect": "minecraft:slow_falling",
+				"duration": 2,
+				"amplifier": 0,
+				"show_particles": false,
+				"show_icon": false
+			}]
+		}
+	},
+	"fall_damage_resource_set": {
+		"type": "origins:action_over_time",
+		"interval": 1,
+		"condition": {
+			"type": "origins:and",
+			"conditions": [{
+					"type": "origins:resource",
+					"resource": "*:*_fall_damage_resource",
+					"comparison": "==",
+					"compare_to": 1,
+					"inverted": true
+				}, {
+					"type": "origins:power_active",
+					"power": "*:*_fly_toggle"
+				},
+				{
+					"type": "origins:resource",
+					"resource": "*:*_count",
+					"comparison": "==",
+					"compare_to": 14
+				},
+				{
+					"type": "origins:resource",
+					"resource": "*:*_honey",
+					"comparison": "==",
+					"compare_to": 0,
+					"inverted": true
+				}
+			]
+		},
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "*:*_fall_damage_resource",
+			"change": 1
+		}
+	},
+	"fall_damage_resource_set_zero": {
+		"type": "origins:action_over_time",
+		"interval": 1,
+		"condition": {
+			"type": "origins:and",
+			"conditions": [{
+					"type": "origins:resource",
+					"resource": "*:*_fall_damage_resource",
+					"comparison": "==",
+					"compare_to": 0,
+					"inverted": true
+				}, {
+					"type": "origins:or",
+					"conditions": [{
+							"type": "origins:power_active",
+							"power": "*:*_fly_toggle",
+							"inverted": true
+						},
+						{
+							"type": "origins:resource",
+							"resource": "*:*_count",
+							"comparison": "==",
+							"compare_to": 14,
+							"inverted": true
+						},
+						{
+							"type": "origins:resource",
+							"resource": "*:*_honey",
+							"comparison": "==",
+							"compare_to": 0
+						}
+					]
+				},
+				{
+					"type": "origins:or",
+					"conditions": [{
+							"type": "origins:fluid_height",
+							"fluid": "minecraft:lava",
+							"comparison": "==",
+							"compare_to": 0,
+							"inverted": true
+						},
+						{
+							"type": "origins:fluid_height",
+							"fluid": "minecraft:water",
+							"comparison": "==",
+							"compare_to": 0,
+							"inverted": true
+						},
+						{
+							"type": "origins:on_block"
+						},
+						{
+							"type": "origins:sneaking"
+						}
+					]
+				}
+			]
+		},
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "*:*_fall_damage_resource",
+			"change": -1
+		}
+	},
+	"fly_honey_decrease": {
+		"type": "origins:action_over_time",
+		"interval": 2,
+		"condition": {
+			"type": "origins:and",
+			"conditions": [{
+				"type": "origins:resource",
+				"resource": "*:*_count",
+				"comparison": "==",
+				"compare_to": 14
+			}, {
+				"type": "origins:power_active",
+				"power": "*:*_fly_toggle"
+			}]
+		},
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "*:*_honey",
+			"change": -1
+		}
+	},
+	"not_exposed_to_sun": {
+		"type": "origins:modify_damage_dealt",
+		"condition": {
+			"type": "origins:exposed_to_sun",
+			"inverted": true
+		},
+		"modifier": {
+			"operation": "ADDITION",
+			"value": -4
+		}
+	},
+	"launch_enemy": {
+		"type": "origins:target_action_on_hit",
+		"entity_action": {
+			"type": "origins:chance",
+			"action": {
+				"type": "origins:and",
+				"actions": [{
+						"type": "origins:add_velocity",
+						"y": 0.8
+					},
+					{
+						"type": "origins:execute_command",
+						"command": "playsound minecraft:entity.iron_golem.attack player @a[distance=..12]"
+					}
+				]
+			},
+			"chance": 0.2
+		},
+		"cooldown": 1,
+		"hud_render": {
+			"should_render": false
+		},
+		"damage_condition": {
+			"type": "origins:amount",
+			"comparison": "==",
+			"compare_to": 0,
+			"inverted": true
+		}
+	},
+	"name": "Hive",
+	"description": "You are a Hive, if Resident Bees of you see you get hurt they will do anything to protect you. You can also release Resident Bees with your Primary while not crouching and call them back with Right Click(Use) button while your hands are empty. You can not wear armor."
+}

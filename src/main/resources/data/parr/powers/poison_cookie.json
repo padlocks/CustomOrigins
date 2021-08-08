@@ -1,0 +1,40 @@
+{
+  "type": "origins:multiple",
+    "hurt_eating_cookie": {
+    "type": "origins:action_on_item_use",
+    "item_condition": {
+      "type": "origins:ingredient",
+      "ingredient": {
+        "item": "minecraft:cookie"
+      }
+    },
+	"entity_action": {
+		"type": "origins:damage",
+		"amount": 1,
+		"source": {
+		  "name": "generic",
+		  "unblockable": true,
+		  "bypasses_armor": true
+		}
+	}
+  },
+  "poisoned_by_cookie": {
+	  "type": "origins:action_on_item_use",
+    "item_condition": {
+      "type": "origins:ingredient",
+      "ingredient": {
+        "item": "minecraft:cookie"
+      }
+    },
+	"entity_action": {
+		"type": "origins:apply_effect",
+		  "effect": {
+			"effect": "minecraft:poison",
+			"duration": 40,
+			"amplifier": 1
+		}
+	}
+  },
+  "name": "Toxic Chocolate",
+  "description": "Cookies are not healthy for you."
+}

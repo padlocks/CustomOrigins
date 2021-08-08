@@ -1,0 +1,16 @@
+{
+   "type":"origins:fire_projectile",
+   "cooldown":590,
+   "hud_render":{
+      "bar_index":7
+   },
+   "entity_type":"minecraft:shulker_bullet",
+   "sound":"minecraft:entity.shulker.ambient",
+   "speed":1.3,
+   "count":1,
+   "divergence":1,
+   "key":"secondary",
+   "hidden":false,
+   "name":"Levitation Bullet",
+   "description":"Similar to shulkers, you can shoot out projectiles, giving targets levitation when hit."
+}

@@ -1,0 +1,24 @@
+{
+  "powers": [
+  "shroomling:nimble",
+  "shroomling:wet",
+  "shroomling:poison",
+  "shroomling:smallnerf",
+  "shroomling:foodduringday",
+  "shroomling:climbing",
+  "extraorigins:flammable",
+  "extraorigins:green_thumb",
+  "shroomling:nothungry",
+  "extraorigins:delicate",
+  "shroomling:spawn",
+  "shroomling:pocket",
+  "shroomling:sugar",
+  "shroomling:sugareat",
+  "shroomling:sugarrush"
+  ],
+  "icon": "minecraft:red_mushroom",
+  "order": 1,
+  "impact": 3,
+  "name": "Shroomling",
+  "description": "A mysterious creature half human half shroom,tiny for purposes we will never know,can grow plants and trees,but whats its purpose?."
+}

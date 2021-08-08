@@ -11,6 +11,12 @@
   "option.customorigins.showPlayerOverlays": "Show Player Overlays",
   "option.tooltip.customorigins.showPlayerOverlays": "Toggles overlays such as the armored wither effect rendered on players.",
 
+  "origin.customorigins.changeling.name": "Changeling",
+  "origin.customorigins.changeling.description": "[SYSTEMS ONLY]\nChangelings have the ability to change origins at will.",
+
+  "power.customorigins.switchy.name": "Feelin' a little switchy?",
+  "power.customorigins.switchy.description": "Use your tertiary key to switch origins on the fly!",
+
   "origin.customorigins.honeybee.name": "Honeybee",
   "origin.customorigins.honeybee.description": "A flying insect that pollinates the world, spreading flowers and honey all around.",
 
@@ -92,5 +98,7 @@
 
   "enchantment.customorigins.headphones": "Headphones",
   "enchantment.customorigins.heat_protection": "Heat Protection",
-  "enchantment.customorigins.ground_spikes": "Ground Spikes"
+  "enchantment.customorigins.ground_spikes": "Ground Spikes",
+
+  "layer.origins.system.name": "System Type"
 }

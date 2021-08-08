@@ -1,0 +1,85 @@
+{
+	"type": "origins:active_self",
+	"condition": {
+		"type": "origins:or",
+		"conditions": [
+      {
+				"type": "origins:equipped_item",
+				"equipment_slot": "mainhand",
+				"item_condition": {
+					"type": "origins:ingredient",
+					"ingredient": {
+						"item": "minecraft:sugar"
+					}
+				}
+			},
+			{
+				"type": "origins:equipped_item",
+				"equipment_slot": "offhand",
+				"item_condition": {
+					"type": "origins:ingredient",
+					"ingredient": {
+						"item": "minecraft:sugar"
+					}
+				}
+			}
+		]
+	},
+	"entity_action": {
+		"type": "origins:and",
+		"actions": [
+			{
+				"type": "origins:execute_command",
+				"command": "playsound minecraft:entity.generic.eat player @s",
+				"permission_level": 4
+			},
+			{
+				"type": "origins:change_resource",
+				"resource": "shroomling:sugar",
+				"change": 10
+			},
+			{
+				"type": "origins:if_else",
+				"condition": {
+					"type": "origins:or",
+					"conditions": [
+						{
+							"type": "origins:equipped_item",
+							"equipment_slot": "mainhand",
+							"item_condition": {
+								"type": "origins:ingredient",
+								"ingredient": {
+									"item": "minecraft:sugar"
+								}
+							}
+						},
+						{
+							"type": "origins:equipped_item",
+							"equipment_slot": "offhand",
+							"item_condition": {
+								"type": "origins:ingredient",
+								"ingredient": {
+									"item": "minecraft:sugar"
+								}
+							}
+						}
+					]
+				},
+				"if_action": {
+					"type": "origins:execute_command",
+					"command": "clear @s minecraft:sugar 1",
+					"permission_level": 4
+				}
+			}
+		]
+	},
+	"cooldown": 2,
+	"hud_render": {
+		"should_render": false
+	},
+	"key": {
+		"key": "key.use",
+		"continuous": false
+	},
+  "hidden": true
+}

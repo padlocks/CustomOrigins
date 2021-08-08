@@ -1,0 +1,11 @@
+{
+    "type": "origins:prevent_item_use",
+    "item_condition": {
+        "type": "origins:and",
+        "conditions": [{
+            "type": "origins:food"
+        }]},
+    "hidden": false,
+    "name": "Not Hungry",
+    "description": "You cant Eat Any Food."
+}

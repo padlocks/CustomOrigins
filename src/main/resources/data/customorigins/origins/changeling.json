@@ -1,0 +1,8 @@
+{
+    "powers": [
+        "customorigins:switchy"
+    ],
+    "icon": "waystones:pocket_wormhole",
+    "order": 10,
+    "impact": 3
+}

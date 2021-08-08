@@ -1,0 +1,24 @@
+{
+	"type": "origins:modify_damage_dealt",
+	"modifier": {
+		"name": "Origin modifier",
+		"value": 5.0,
+		"operation": "addition"
+	},
+	"condition": {
+		"type": "origins:or",
+		"conditions": [{
+				"type": "origins:fluid_height",
+				"fluid": "water",
+				"comparison": ">",
+				"compare_to": 0.0
+			},
+			{
+				"type": "origins:in_rain"
+			}
+		]
+	},
+        "hidden": false,
+        "name": "Absorption",
+        "description": "Gives the player additional 2 and a half hearts of damage if the player is inside a water fluid, regardless of its fluid level,including rain."
+}

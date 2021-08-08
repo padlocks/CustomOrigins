@@ -1,0 +1,138 @@
+{
+	"type": "origins:active_self",
+	"name": "Mimic Sounds",
+	"description": "Each hotbar slot is linked to a different sound. Press the secondary ability key to mimic a sound.",
+	
+	"entity_action": {
+		"type": "origins:if_else_list",
+		"actions": [
+			{
+				"condition": {
+					"type": "origins:command",
+					"command": "data get entity @s SelectedItemSlot",
+					"comparison": "==",
+					"compare_to": 0
+				},
+				"action": {
+					"type": "origins:execute_command",
+					"command": "playsound minecraft:entity.parrot.ambient master @a[distance=0..10] ~ ~ ~ 0.6 1",
+					"permission_level": 4
+				}
+			},
+			{
+				"condition": {
+					"type": "origins:command",
+					"command": "data get entity @s SelectedItemSlot",
+					"comparison": "==",
+					"compare_to": 1
+				},
+				"action": {
+					"type": "origins:execute_command",
+					"command": "playsound minecraft:entity.zombie.ambient master @a[distance=0..10] ~ ~ ~ 0.6 1",
+					"permission_level": 4
+				}
+			},
+			{
+				"condition": {
+					"type": "origins:command",
+					"command": "data get entity @s SelectedItemSlot",
+					"comparison": "==",
+					"compare_to": 2
+				},
+				"action": {
+					"type": "origins:execute_command",
+					"command": "playsound minecraft:entity.skeleton.ambient master @a[distance=0..10] ~ ~ ~ 0.6 1",
+					"permission_level": 4
+				}
+			},
+			{
+				"condition": {
+					"type": "origins:command",
+					"command": "data get entity @s SelectedItemSlot",
+					"comparison": "==",
+					"compare_to": 3
+				},
+				"action": {
+					"type": "origins:execute_command",
+					"command": "playsound minecraft:entity.spider.ambient master @a[distance=0..10] ~ ~ ~ 0.6 1",
+					"permission_level": 4
+				}
+			},
+			{
+				"condition": {
+					"type": "origins:command",
+					"command": "data get entity @s SelectedItemSlot",
+					"comparison": "==",
+					"compare_to": 4
+				},
+				"action": {
+					"type": "origins:execute_command",
+					"command": "playsound minecraft:entity.creeper.primed master @a[distance=0..10] ~ ~ ~ 0.6 1",
+					"permission_level": 4
+				}
+			},
+			{
+				"condition": {
+					"type": "origins:command",
+					"command": "data get entity @s SelectedItemSlot",
+					"comparison": "==",
+					"compare_to": 5
+				},
+				"action": {
+					"type": "origins:execute_command",
+					"command": "playsound minecraft:entity.blaze.ambient master @a[distance=0..10] ~ ~ ~ 0.6 1",
+					"permission_level": 4
+				}
+			},
+			{
+				"condition": {
+					"type": "origins:command",
+					"command": "data get entity @s SelectedItemSlot",
+					"comparison": "==",
+					"compare_to": 6
+				},
+				"action": {
+					"type": "origins:execute_command",
+					"command": "playsound minecraft:entity.ghast.ambient master @a[distance=0..10] ~ ~ ~ 0.6 1",
+					"permission_level": 4
+				}
+			},
+			{
+				"condition": {
+					"type": "origins:command",
+					"command": "data get entity @s SelectedItemSlot",
+					"comparison": "==",
+					"compare_to": 7
+				},
+				"action": {
+					"type": "origins:execute_command",
+					"command": "playsound minecraft:entity.wither_skeleton.ambient master @a[distance=0..10] ~ ~ ~ 0.6 1",
+					"permission_level": 4
+				}
+			},
+			{
+				"condition": {
+					"type": "origins:command",
+					"command": "data get entity @s SelectedItemSlot",
+					"comparison": "==",
+					"compare_to": 8
+				},
+				"action": {
+					"type": "origins:execute_command",
+					"command": "playsound minecraft:entity.enderman.ambient master @a[distance=0..10] ~ ~ ~ 0.6 1",
+					"permission_level": 4
+				}
+			}
+		]
+	},
+	"key": {
+		"key": "key.origins.secondary_active",
+		"continuous": false
+	},
+	"cooldown": 10,
+	"hud_render": {
+	  "should_render": true,
+	  "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
+	  "bar_index": 6
+	}
+}

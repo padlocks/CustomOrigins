@@ -1,0 +1,18 @@
+{
+	"powers": [
+                "shulk:tank",
+                "shulk:armor",
+                "shulk:proj",
+                "origins:shulker_inventory",
+                "shulk:levitation",
+                "shulk:vegetarian",
+                "shulk:exhaust",
+                "shulk:swim",
+                "shulk:slow",
+                "shulk:resist"
+],
+	"icon": "minecraft:shulker_box",
+	"impact": 2,
+	"name": "Shulk",
+	"description": "Highly armored descendants of the shulkers that use gravity to their advantage."
+}

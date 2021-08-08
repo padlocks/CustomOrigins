@@ -1,0 +1,22 @@
+{
+	"powers": [
+		"hivegolem:callback",
+		"hivegolem:bees",
+		"hivegolem:desc/deschoney",
+		"hivegolem:desc/desccomb",
+		"hivegolem:desc/desccallback",
+		"hivegolem:desc/descproduce",
+		"hivegolem:desc/descfly",
+		"hivegolem:desc/descgolembody",
+		"hivegolem:desc/descgolemlauch",
+		"hivegolem:desc/descwater",
+		"hivegolem:desc/descsun"
+		
+		
+	],
+	"icon": "minecraft:beehive",
+	"order": 10,
+	"impact": 3,
+	"name": "Hive Golem",
+	"description": "A former Iron Golem who lost its village and then found a bee colony and decided to be a Hive for them."
+}

@@ -1,0 +1,23 @@
+{
+	"powers": [
+		"mite:small_guy" ,
+		"origins:throw_ender_pearl" ,
+		"mite:less_hearts" ,
+		"mite:climbing" ,
+		"mite:no_shield" ,
+		"origins:water_vulnerability" ,
+        "mite:faster_guy" ,
+		"origins:pumpkin_hate" ,
+		"origins:more_exhaustion" ,
+		"origins:ender_particles"
+        
+		
+		
+  		
+	],
+	"icon": "minecraft:ender_pearl",
+	"order": 10,
+	"impact": 2,
+	"name": "Endermite",
+	"description": "Endermite, a close relative to Enderman, being smaller but quicker then their older relative"
+}

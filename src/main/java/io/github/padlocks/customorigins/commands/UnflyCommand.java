@@ -6,8 +6,8 @@ import com.mojang.brigadier.context.CommandContext;
 import com.mojang.datafixers.util.Either;
 
 import io.github.padlocks.customorigins.CustomOriginsMod;
-import io.github.padlocks.customorigins.Pal;
-import io.github.padlocks.customorigins.VanillaAbilities;
+import io.github.ladysnake.pal.Pal;
+import io.github.ladysnake.pal.VanillaAbilities;
 import io.github.padlocks.customorigins.effect.FlightEffect;
 import io.github.padlocks.customorigins.misc.Command;
 import net.minecraft.command.argument.EntityArgumentType;

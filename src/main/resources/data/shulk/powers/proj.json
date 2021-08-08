@@ -1,0 +1,13 @@
+{
+    "type": "origins:prevent_item_use",
+    "name": "Unweildy",
+    "item_condition": {
+        "type": "origins:ingredient",
+        "inverted": false,
+        "ingredient": {
+            "tag": "shulk:proj"
+        }
+    },
+    "description": "The way your hands are formed prevent you from using projectile weapons.",
+    "hidden": false
+}

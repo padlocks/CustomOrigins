@@ -1,0 +1,11 @@
+{
+    "type": "origins:attribute",
+    "modifiers": [
+        {
+            "operation": "addition",
+            "value": 0.27,
+            "attribute": "minecraft:generic.knockback_resistance"
+        }
+    ],
+    "hidden": true
+}

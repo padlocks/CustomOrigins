@@ -1,0 +1,24 @@
+{
+	"powers": [
+		"parr:winged",
+		"parr:energy",
+		"parr:flap",
+		"parr:smallsize",
+		"parr:mimic",
+		"parr:fragile",
+		"parr:hotbar_select",
+		"parr:small_appetite",
+		"parr:eat_seeds",
+		"parr:eat_beetroot_seeds",
+		"parr:eat_pumpkin_seeds",
+		"parr:eat_melon_seeds",
+		"parr:vegetarian",
+		"parr:poison_cookie",
+		"parr:lessfalldmg"
+	],
+	"icon": "minecraft:melon_slice",
+	"order": 10,
+	"impact": 2,
+	"name": "Parrian",
+	"description": "Smaller than the Avians and Elytrians, Parrians are excellent at mimicking noises."
+}

@@ -3,7 +3,11 @@
   "origins": [
     "customorigins:frogling",
     "customorigins:honeybee",
-    "customorigins:lost_soul",
-    "customorigins:withered"
+    "customorigins:withered",
+    "mite:endermite",
+    "foxboi_two:foxboi_two",
+    "parr:parrian",
+    "shroomling:shroomling",
+    "shulk:shulker"
   ]
 }

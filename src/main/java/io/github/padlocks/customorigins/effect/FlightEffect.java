@@ -1,9 +1,9 @@
 package io.github.padlocks.customorigins.effect;
 
-import io.github.padlocks.customorigins.AbilitySource;
+import io.github.ladysnake.pal.AbilitySource;
 import io.github.padlocks.customorigins.CustomOriginsMod;
-import io.github.padlocks.customorigins.Pal;
-import io.github.padlocks.customorigins.VanillaAbilities;
+import io.github.ladysnake.pal.Pal;
+import io.github.ladysnake.pal.VanillaAbilities;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.AttributeContainer;
 import net.minecraft.entity.effect.StatusEffect;

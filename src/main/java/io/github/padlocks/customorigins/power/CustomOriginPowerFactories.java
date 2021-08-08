@@ -62,6 +62,33 @@ public class CustomOriginPowerFactories {
                             power.setKey((Active.Key) data.get("key"));
                             return power;
                     })).allowCondition();
+    public static final PowerFactory<Power> FACTORY_SWITCHY_POWER = create(new PowerFactory<>(
+                    new Identifier(CustomOriginsMod.MOD_ID, "switchy"),
+                    new SerializableData().add("cooldown", SerializableDataType.INT)
+                                    .add("hud_render", SerializableDataType.HUD_RENDER)
+                                    .add("key", SerializableDataType.BACKWARDS_COMPATIBLE_KEY, new Active.Key()),
+                    data -> (type, player) -> {
+                            SwitchyPower power = new SwitchyPower(type, player, data.getInt("cooldown"),
+                                            (HudRender) data.get("hud_render"));
+                            power.setKey((Active.Key) data.get("key"));
+                            return power;
+                    })).allowCondition();
+        public static final PowerFactory<Power> FACTORY_EXPLODE_POWER = create(new PowerFactory<>(
+                new Identifier(CustomOriginsMod.MOD_ID, "explode"), 
+                new SerializableData()
+				.add("cooldown", SerializableDataType.INT).add("strength", SerializableDataType.FLOAT, 1.0f)
+				.add("break_blocks", SerializableDataType.BOOLEAN, true)
+				.add("self_damage", SerializableDataType.FLOAT, 1.0f)
+                                .add("hud_render", SerializableDataType.HUD_RENDER)
+                                .add("key", SerializableDataType.BACKWARDS_COMPATIBLE_KEY)
+				.add("ignitable", SerializableDataType.BOOLEAN, false), (data) -> (type, player) -> {
+					ExplodePower power = new ExplodePower(type, player, data.getInt("cooldown"),
+							(HudRender) data.get("hud_render"), data.getFloat("strength"),
+							data.getBoolean("break_blocks"), data.getFloat("self_damage"),
+							data.getBoolean("ignitable"));
+					power.setKey((Active.Key) data.get("key"));
+					return power;
+				}).allowCondition());
 
     public static void register() {
         POWER_FACTORIES.keySet().forEach(

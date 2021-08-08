@@ -1,0 +1,11 @@
+{
+  "name": "Sturdy Skin",
+  "description": "Your body provides natural protection against damage and knockback.",
+  "type": "origins:attribute",
+  "modifier": {
+    "name": "Natural Armor health bonus",
+    "attribute": "minecraft:generic.armor",
+    "value": 8.0,
+    "operation": "addition"
+  }
+}

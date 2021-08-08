@@ -1,0 +1,11 @@
+{
+    "powers": [
+        "classes:explodable",
+        "classes:gunpowder"
+    ],
+    "icon": "gunpowder",
+    "order": 11,
+    "impact": 0,
+    "name": "Demolitionist",
+    "description": "You like to blow stuff up."
+}

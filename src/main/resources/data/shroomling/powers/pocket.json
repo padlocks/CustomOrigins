@@ -1,0 +1,10 @@
+{
+  "type": "origins:inventory",
+  "drop_on_death": false,
+    "key": {
+        "key": "key.origins.secondary_active",
+        "continuous": false
+    },
+  "name": "Tiny Pocket",
+  "description": "You carry a secret stash that no one but you has acccess to. You can access this pocket by using your secondary."
+}

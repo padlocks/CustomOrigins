@@ -1,0 +1,10 @@
+{
+  "name": "Large Diet",
+  "description": "Your diet is slightly bigger than humans, meaning you need to eat more."
+  "type": "origins:modify_exhaustion",
+  "modifier": {
+    "name": "Extra exhaustion from large appetite",
+    "value": 0.35,
+    "operation": "multiply_base"
+  }
+}

@@ -1,0 +1,18 @@
+{
+    "type": "origins:multiple",
+    "explode": {
+        "type": "customorigins:explode",
+        "break_blocks": false,
+        "strength": 2,
+        "self_damage": 0,
+        "key": "secondary",
+        "cooldown": 100,
+        "ignitable": true,
+        "hud_render": {
+            "bar_index": 0,
+            "should_render": true
+        }
+    },
+    "name": "DANGER Handle with care",
+    "description": "You can activate your ability to cause a small explosion using your quaternary key. It doesn't blow up blocks, but it can pack a punch."
+}

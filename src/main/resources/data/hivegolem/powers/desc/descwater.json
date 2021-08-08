@@ -1,0 +1,5 @@
+{
+	"type":"origins:simple",
+	"name":"Water Vulnerability",
+	"description":"You take damage while in contact with water."
+}

@@ -1,0 +1,13 @@
+{
+	"name": "Projectile Resistant",
+	"description": "You take less projectile damage thanks to your protective shell.",
+	"type": "origins:modify_damage_taken",
+	"damage_condition": {
+		"type": "origins:projectile"
+	},
+	"modifier": {
+		"name": "Projectile Resistant",
+		"operation": "multiply_base",
+		"value": 0.80
+	}
+}

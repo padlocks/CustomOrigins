@@ -20,4 +20,6 @@ public class CustomOriginsPowers {
         public static final PowerType<Power> BLACK_THUMB = new PowerTypeReference(new Identifier("customorigins", "black_thumb"));
         public static final PowerType<Power> HIVE_MIND = new PowerTypeReference(new Identifier("customorigins", "hive_mind"));
         public static final PowerType<Power> AERIAL_AFFINITY = new PowerTypeReference(new Identifier("customorigins", "aerial_affinity"));
+        public static final PowerType<Power> SWITCHY = new PowerTypeReference(new Identifier("customorigins", "switchy"));
+        public static final PowerType<Power> EXPLODE = new PowerTypeReference(new Identifier("customorigins", "explode"));
 }

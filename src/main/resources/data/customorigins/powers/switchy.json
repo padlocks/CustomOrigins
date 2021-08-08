@@ -1,0 +1,12 @@
+{
+    "type": "customorigins:switchy",
+    "key": {
+        "key": "key.origins.ternary_active",
+        "continuous": false
+    },
+    "cooldown": 300,
+    "hud_render": {
+        "sprite_location": "customorigins:textures/gui/ability_bars.png",
+        "bar_index": "7"
+    }
+}

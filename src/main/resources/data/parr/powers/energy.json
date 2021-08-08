@@ -1,0 +1,43 @@
+{
+	"type": "origins:multiple",
+    "resource": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 100,
+        "hud_render": {
+		"should_render": true,
+        "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
+        "bar_index": 23
+    }
+    },
+	"death": {
+    
+    "type": "origins:action_on_callback",
+    "entity_action_chosen": {
+        "type": "origins:change_resource",
+    "resource": "*:energy_resource",
+    "change": -100
+    },
+    "entity_action_respawned": {
+        "type": "origins:change_resource",
+    "resource": "*:energy_resource",
+    "change": -100
+    },
+    "execute_chosen_when_orb": true
+},
+"energy_over_time": {
+        "type": "origins:action_over_time",
+        "interval": 20,
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:energy_resource",
+            "change": 15
+        },
+		"condition": {
+        "type": "origins:on_block"
+		}
+    },
+	"name": "Energy",
+	"description": "You only have so much energy.",
+	"hidden": true
+}
